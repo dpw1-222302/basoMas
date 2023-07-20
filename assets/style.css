@@ -1,15 +1,16 @@
 body{
     font-family: Helvetica, sans-serif !important;
 }
+.container  {
+    border: 1px solid red;
+}
 
 main{
     max-width: 100%;
 }
 
 .logo{
-    border: 1px solid red;
-    max-height: 20px;
-    
+    max-height: 40px;   
 }
 .spacer-05 {
     width: 100%;
@@ -22,7 +23,8 @@ main{
 }
 
 .navbar {
-    background-color: #F9E5AD;
+    background-color: #ffffff;
+    border-bottom: 1pt solid grey;
 }
 
 .title-page{
@@ -34,7 +36,7 @@ main{
 }
 
 .page-filter{
-    background-color: palegoldenrod;
+    background-color: rgb(245, 245, 245);
     padding: 20px;
 }
 
