@@ -63,77 +63,27 @@
             </div>
         </section>
         <section class="review-section m-lg-4">
-            <div class="card-deck p-2">
-                <div class="card">
+           
+            <div class="container-fluid card-deck p-2">
+            <?php
+            include 'connect.php';
+                            // menggunakan query sql agar menampilkan data produk dan join kedalam tabel user agar mendapatkan siapa pemilik produk
+                            $query = "SELECT * FROM restaurant ";
+                            $datas = $conn->query($query);
+                            foreach ($datas as $data):
+            ?>
+                <div class=" container card">
                     <img class="card-img-top" src="..." alt="Card image cap">
                     <div class="card-body">
-                        <h5 class="card-title">Nama Restoran</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                            additional content. This content is a little bit longer.</p>
+                        <h5 class="card-title"><?= $data['nama_resto'] ?></h5>
+                        <h6 class="card text"><?= $data['harga'] ?></h6>
+                        <p class="card-text"><?= $data['lokasi']?></p>
                     </div>
                     <div class="card-footer">
                         <small class="text-muted">Last updated 3 mins ago</small>
                     </div>
                 </div>
-                <div class="card">
-                    <img class="card-img-top" src="..." alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This card has supporting text below as a natural lead-in to additional
-                            content.</p>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">Last updated 3 mins ago</small>
-                    </div>
-                </div>
-                <div class="card">
-                    <img class="card-img-top" src="..." alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                            additional content. This card has even longer content than the first to show that equal
-                            height action.</p>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">Last updated 3 mins ago</small>
-                    </div>
-                </div>
-            </div>
-            <div class="card-deck p-2">
-                <div class="card">
-                    <img class="card-img-top" src="..." alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                            additional content. This content is a little bit longer.</p>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">Last updated 3 mins ago</small>
-                    </div>
-                </div>
-                <div class="card">
-                    <img class="card-img-top" src="..." alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This card has supporting text below as a natural lead-in to additional
-                            content.</p>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">Last updated 3 mins ago</small>
-                    </div>
-                </div>
-                <div class="card">
-                    <img class="card-img-top" src="..." alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                            additional content. This card has even longer content than the first to show that equal
-                            height action.</p>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">Last updated 3 mins ago</small>
-                    </div>
-                </div>
+                <?php endforeach ?>
             </div>
             <center class="p-5">
                 <button type="button" class="btn btn-outline-danger">Next >></button>

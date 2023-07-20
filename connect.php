@@ -2,7 +2,7 @@
 $host = 'localhost'; // Nama host database
 $username = 'root'; // Username database
 $password = ''; // Password database
-$database = 'db_pert11'; // Nama database
+$database = 'basoMas'; // Nama database
 // Buat koneksi
 $conn = new mysqli($host, $username, $password, $database);
 // Periksa koneksi
