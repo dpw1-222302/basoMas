@@ -1,7 +1,7 @@
 # Baso Mas
-Website Review Bakso 
+Website Review Bakso di Banyumas
 
-## Nama TIM SoBasooo
+## TIM SoBasooo
 1. Asty Yuliani
 2. Azelia Puspa Diah Narendri
 3. Lintang Suryaningrum
