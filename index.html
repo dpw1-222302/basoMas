@@ -6,64 +6,123 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Baso Mas</title>
     <link rel="stylesheet" href="assets/style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark">
-          <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="#">
             <img class="logo" src="assets/logo-basoMas.png" alt="">
-          </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
-              <li class="nav-item">
-                <a class="nav-link active text-dark" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-dark" href="#">Restaurant</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-dark" href="#">Fan Reviews</a>
-              </li>
+                <li class="nav-item">
+                    <a class="nav-link active text-dark" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="#">Restaurant</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="#">Fan Reviews</a>
+                </li>
             </ul>
 
             <form class="form-inline">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-light my-1 my-sm-0" type="submit">Search</button>
-              </form>
-          </div>
-    </nav>
-    <section class="text-center title-page">
-        Review Bakso
-    </section>
-    <section class="page-filter">
-        <div class="filter-container d-flex">
-            <div class="btn-group" role="group" aria-label="Basic example">
-                <button type="button" class="btn btn-light">Left</button>
-                <button type="button" class="btn btn-light">Middle</button>
-                <button type="button" class="btn btn-light">Right</button>
-            </div>
-            <form class="range ">
-                <div class="form-group">
-                  <input type="range" class="form-control-range" id="formControlRange">
-                  <label for=" formControlRange">1 - 10</label>
-                </div>
             </form>
         </div>
-    </section>
-    <section class="review-section">
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+    </nav>
+    <main>
+        <section class="title-page">
+            <h1 class="title-page">
+                Review Bakso
+            </h1>
+        </section>
+        <section class="page-filter">
+            <div class="filter-container d-flex justify-content-between mx-auto">
+                <div class="btn-group mr-lg-3" role="group" aria-label="Basic example">
+                    <button type="button" class="btn btn-light">Left</button>
+                    <button type="button" class="btn btn-light">Middle</button>
+                    <button type="button" class="btn btn-light">Right</button>
+                </div>
+                <form>
+                    <div class="container row form-group">
+                        <input type="range" class="col form-control-range" id="formControlRange">
+                        <label class="col" for=" formControlRange"> <span>0.0 - 10.0</span></label>
+                    </div>
+                </form>
             </div>
-          </div>        
-    </section>
+        </section>
+        <section class="review-section m-lg-4">
+            <div class="card-group">
+                <div class="card">
+                    <img class="card-img-top" src="..." alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                            additional content. This content is a little bit longer.</p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Last updated 3 mins ago</small>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="card-img-top" src="..." alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This card has supporting text below as a natural lead-in to additional
+                            content.</p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Last updated 3 mins ago</small>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="card-img-top" src="..." alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                            additional content. This card has even longer content than the first to show that equal
+                            height action.</p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Last updated 3 mins ago</small>
+                    </div>
+                </div>
+            </div>
+            <center class="p-5">
+                <button type="button" class="btn btn-outline-danger">Next >></button>
+            </center>
+        </section>
+    </main>
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+        <div class="col-md-4 d-flex align-items-center">
+            <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+                <svg class="bi" width="30" height="24">
+                    <use xlink:href="#bootstrap"></use>
+                </svg>
+            </a>
+            <span class="mb-3 mb-md-0 text-muted">© 2023 Baso Mas</span>
+        </div>
+
+        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+            <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24">
+                        <use xlink:href="#twitter"></use>
+                    </svg></a></li>
+            <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24">
+                        <use xlink:href="#instagram"></use>
+                    </svg></a></li>
+            <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24">
+                        <use xlink:href="#facebook"></use>
+                    </svg></a></li>
+        </ul>
+    </footer>
 </body>
 
 </html>

@@ -1,6 +1,11 @@
 body{
-    font-family: Helvetica, sans-serif;
+    font-family: Helvetica, sans-serif !important;
 }
+
+main{
+    max-width: 100%;
+}
+
 .logo{
     border: 1px solid red;
     max-height: 20px;
@@ -22,6 +27,8 @@ body{
 
 .title-page{
     padding: 20px 20px;
+    text-decoration: none;
+    text-align: center;
     font-size: 30px;
     font-weight: bolder;
 }
@@ -36,7 +43,12 @@ body{
 }
 
 .form-group{
+    display: inline-block;
+}
+
+.form-group label{
     display: inline;
+    position: end;
 }
 
 .btn-group{
