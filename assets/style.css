@@ -66,6 +66,7 @@ main{
 
 }
 
+
 .rating-container{
     display: flex;
 
@@ -73,4 +74,10 @@ main{
 
 .image-rating img{
     width: 20px;
+}
+
+.login-container{
+    display: flex;
+    flex-direction: column;
+
 }
