@@ -1,9 +1,6 @@
 body{
     font-family: Helvetica, sans-serif !important;
 }
-.container  {
-    border: 1px solid red;
-}
 
 main{
     max-width: 100%;
@@ -66,7 +63,46 @@ main{
 
 }
 
+
+.rating-container{
+    display: flex;
+
+    align-items: center;
+}
+
+.rating-container img{
+    height: 50px;
+
+    padding-right: 1.5rem;
+}
+
+.rating-container .user-info p{
+    margin: 0;
+}
+
+.resto-container{
+    border-bottom: 1px solid rgb(167, 167, 167);
+    height: 500px;
+}
+
+.resto-container div{
+    height: 95%;
+    background-color: grey;
+}
 .login-container{
     display: flex;
     flex-direction: column;
+}
+
+.review-container{
+    display: flex;
+    padding: 20px;
+
+    margin-top: 2rem;
+}
+
+.review-container .review-image .image-dummy{
+    background-color: grey;
+    width: 200px;
+    height:100%;
 }
