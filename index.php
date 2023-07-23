@@ -32,7 +32,7 @@
                     <a class="nav-link text-dark" href="#" data-toggle="modal" data-target="#exampleModal">Fan Reviews</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" href="#" data-toggle="modal" data-target="#exampleModal">Masuk</a>
+                    <a class="nav-link text-dark" href="login.php">Masuk</a>
                 </li>
             </ul>
 
@@ -57,21 +57,30 @@
                 </div>
                 <form>
                     <div class="container row form-group">
-                        <input type="range" class="col form-control-range" id="formControlRange">
-                        <label class="col" for=" formControlRange"> <span>0.0 - 10.0</span></label>
+                        <form action="#" method="POST">
+                            <input type="range" name="rate" class="col form-control-range" max=10 min=0 id="rate">
+                            <label class="col" for=" formControlRange"> <span>0.0 - 10.0</span></label>
+                            <button type="submit" class="btn btn-primary" name="cari" onclick="cekrate()">Cari</button>
+                        </form>
                     </div>
                 </form>
             </div>
         </section>
+
+
         <section class="review-section m-lg-4">
 
             <div class="container-fluid card-deck p-2">
                 <?php
-                include 'connect.php';
+                include_once 'rating.php';
+
+                $ex = $conn->query($query);
+
                 // menggunakan query sql agar menampilkan data produk dan join kedalam tabel user agar mendapatkan siapa pemilik produk
-                $query = "SELECT * FROM restaurant ";
-                $datas = $conn->query($query);
-                foreach ($datas as $data) :
+                // $r = isset($_POST['rate']);
+                // $query = "SELECT * FROM restaurant JOIN review ON restaurant.resto_id = review.resto_id";
+                // $datas = $conn->query($ex);
+                foreach ($ex as $data) :
                 ?>
                     <div class=" container card">
                         <img class="card-img-top" src="..." alt="Card image cap">
@@ -253,6 +262,47 @@
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+
+
+    <script>
+        function cekRate() {
+            var rate = $('#rate').val();
+            $.ajax({
+                type: "POST",
+                url: 'rating.php',
+                data: {
+                    rate: rate
+                }
+            });
+        }
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('.rate').on('change', function() {
+
+                var rate = $('#rate').val();
+                $.ajax({
+                    type: "POST",
+                    url: 'rating.php',
+                    data: {
+                        rate: rate
+                    }
+                });
+            });
+
+            $('.rate').on('click', function() {
+                var rate = $('#rate').val();
+                $.ajax({
+                    type: "POST",
+                    url: 'rating.php',
+                    data: {
+                        rate: rate
+                    }
+                });
+            });
+        });
+    </script>
+
 </body>
 
 </html>
