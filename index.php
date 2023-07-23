@@ -32,7 +32,7 @@
                     <a class="nav-link text-dark" href="#" data-toggle="modal" data-target="#exampleModal">Fan Reviews</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" href="#" data-toggle="modal" data-target="#exampleModal">Masuk</a>
+                    <a class="nav-link text-dark" href="login.php">Masuk</a>
                 </li>
             </ul>
 
