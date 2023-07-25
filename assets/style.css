@@ -87,7 +87,13 @@ main{
 
 .resto-container div{
     height: 95%;
-    background-color: grey;
+    background-color: rgb(230, 230, 230);
+    justify-content: center;
+}
+
+.resto-container div img{
+    
+    height: 100%;
 }
 .login-container{
     display: flex;
@@ -96,9 +102,9 @@ main{
 
 .review-container{
     display: flex;
-    padding: 20px;
 
-    margin-top: 2rem;
+    margin: 5rem 0;
+    padding: 5px;
 }
 
 .review-container .review-image .image-dummy{

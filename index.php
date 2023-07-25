@@ -6,9 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Baso Mas</title>
     <link rel="stylesheet" href="assets/style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+    <link href="admin/restaurant/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
 </head>
 
@@ -17,7 +19,8 @@
         <a class="navbar-brand" href="#">
             <img class="logo" src="assets/img/logo-basoMas.png" alt="">
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
@@ -26,10 +29,11 @@
                     <a class="nav-link active text-dark" aria-current="page" href="#">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" href="restaurant.html">Restaurant</a>
+                    <a class="nav-link text-dark" href="">Restaurant</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" href="#" data-toggle="modal" data-target="#exampleModal">Fan Reviews</a>
+                    <a class="nav-link text-dark" href="#" data-toggle="modal" data-target="#exampleModal">Fan
+                        Reviews</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-dark" href="#" data-toggle="modal" data-target="#exampleModal">Masuk</a>
@@ -67,26 +71,35 @@
             </div>
         </section>
         <section class="review-section m-lg-4">
-           
+
             <div class="container-fluid card-deck p-2">
-            <?php
-            include 'connect.php';
-                            // menggunakan query sql agar menampilkan data produk dan join kedalam tabel user agar mendapatkan siapa pemilik produk
-                            $query = "SELECT * FROM restaurant ";
-                            $datas = $conn->query($query);
-                            foreach ($datas as $data):
-            ?>
-                <div class=" container card">
-                    <img class="card-img-top" src="assets/img/10.png" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title"><?= $data['nama_resto'] ?></h5>
-                        <h6 class="card text"><?= $data['harga'] ?></h6>
-                        <p class="card-text"><?= $data['lokasi']?></p>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">Last updated 3 mins ago</small>
-                    </div>
-                </div>
+                <?php
+                include 'connect.php';
+                // menggunakan query sql agar menampilkan data produk dan join kedalam tabel user agar mendapatkan siapa pemilik produk
+                $query = "SELECT * FROM restaurant ";
+                $datas = $conn->query($query);
+                foreach ($datas as $data):
+                    ?>
+                    <a href="./restaurant.php?idResto=<?= $data['resto_id']; ?>">
+                        <div class=" container card">
+                            <img class="card-img-top" src="assets/img/10.png" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <?= $data['nama_resto'] ?>
+                                </h5>
+                                <h6 class="card text">
+                                    <?= $data['harga'] ?>
+                                </h6>
+                                <p class="card-text">
+                                    <?= $data['lokasi'] ?>
+                                </p>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted">Last updated 3 mins ago</small>
+                            </div>
+                        </div>
+                    </a>
+
                 <?php endforeach ?>
             </div>
             <center class="p-5">
@@ -233,11 +246,13 @@
                         <form action="proses_login.php" method="POST">
                             <div class="text-center">
                                 <label for="email">Email</label>
-                                <input required type="email" class="form-control" id="email" placeholder="Masukan email" name="email">
+                                <input required type="email" class="form-control" id="email" placeholder="Masukan email"
+                                    name="email">
                             </div>
                             <div class="text-center">
                                 <label for="password">Password</label>
-                                <input required type="password" class="form-control" id="password" placeholder="Masukkan password" name="password">
+                                <input required type="password" class="form-control" id="password"
+                                    placeholder="Masukkan password" name="password">
                             </div>
                             <div class="text-center">
                                 <a href="register.php">Belum punya akun? Daftar di sini</a>
@@ -254,8 +269,12 @@
     </div>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+        crossorigin="anonymous"></script>
 
 
     <script>
@@ -271,8 +290,8 @@
         }
     </script>
     <script>
-        $(document).ready(function() {
-            $('.rate').on('change', function() {
+        $(document).ready(function () {
+            $('.rate').on('change', function () {
 
                 var rate = $('#rate').val();
                 $.ajax({
@@ -284,7 +303,7 @@
                 });
             });
 
-            $('.rate').on('click', function() {
+            $('.rate').on('click', function () {
                 var rate = $('#rate').val();
                 $.ajax({
                     type: "POST",
