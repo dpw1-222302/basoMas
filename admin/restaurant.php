@@ -1,8 +1,3 @@
-<?php
-
-include '../connect.php';
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,13 +5,20 @@ include '../connect.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
+    <link rel="canonical" href="https://www.wrappixel.com/templates/myadmin-lite/" />
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link href="bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+
 </head>
 
 <body>
     <!-- Sidebar -->
-    <div class="container-fluid">
+    <!-- <div class="container-fluid">
         <div class="row">
             <nav class="col-md-1 d-none d-md-block bg-light sidebar">
                 <div class="sidebar-sticky">
@@ -26,11 +28,14 @@ include '../connect.php';
                         </li>
                     </ul>
                 </div>
-            </nav>
-            <!-- Content -->
-            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-                <div class="d-flex justify-content-between align-items-center">
-                    <h2>Restaurant</h2>
+            </nav> -->
+
+    <!-- Content -->
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="white-box">
+                    <h4>Restaurant</h4>
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tambahDataModal">
                         Tambah Data
                     </button>
@@ -94,55 +99,76 @@ include '../connect.php';
                                 </tr>
 
                                 <!-- Modal ubah data -->
-                                <div class="modal fade" id="editDataModal<?=
-                                    $data['produk_id'] ?>" tabindex="-1" role="dialog"
-                                    aria-labelledby="editDataModalLabel" ariahidden="true">
+                                <div class="modal fade" id="editDataModal" tabindex="-1" role="dialog"
+                                    aria-labelledby="editDataModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="editDataModalLabel">Tambah Data Pengguna</h5>
+                                                <h5 class="modal-title" id="editDataModalLabel">Ubah Data Restaurant
+                                                </h5>
                                                 <button type="button" class="close" datadismiss="modal" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
                                             </div>
                                             <form method="POST" action="produk/ubah.php">
                                                 <div class="modal-body">
-                                                    <input type="hidden" name="produk_id" value="<?= $data['produk_id'] ?>">
-                                                    <div class=" form-group">
-                                                        <label for="nama">Nama</label>
-                                                        <input required type="text" class="formcontrol" id="nama"
-                                                            name="nama" value="<?= $data['nama']
-                                                                ?>">
+                                                    <input type="hidden" name="produk_id" value="">
+                                                    <div class="form-group">
+                                                        <label for="nama">Nama Restaurant</label>
+                                                        <input required type="text" class="form-control" id="nama_resto"
+                                                            name="nama_resto">
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="harga">Harga</label>
-                                                        <input required type="number" class="formcontrol" id="harga"
-                                                            name="harga" value="<?= $data['harga']
-                                                                ?>">
+                                                        <label for="harga">Lokasi</label>
+                                                        <input required type="text" class="form-control" id="lokasi"
+                                                            name="lokasi">
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="number">Stok</label>
-                                                        <input required type="number" class="formcontrol" id="number"
-                                                            name="stok" value="<?= $data['stok'] ?>">
+                                                        <label for="number">Harga</label>
+                                                        <input required type="number" class="form-control" id="harga"
+                                                            name="harga">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="no_telp">No Telepon</label>
+                                                        <input required type="tel" class="form-control" id="no_telp"
+                                                            name="no_telp">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="number">Jam Buka</label>
+                                                        <input required type="time" class="form-control" id="jam_buka"
+                                                            name="jam_buka">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="">Jam Tutup</label>
+                                                        <input required type="time" class="form-control" id="jam_tutup"
+                                                            name="jam_tutup">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="file">Foto</label>
+                                                        <input required type="file" class="form-control" name="image">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="file">Video</label>
+                                                        <!-- <input required type="file" class="form-control" id="document" name="document"> -->
+                                                        <input type="text" class="form-control" name="video">
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary"
                                                         data-dismiss="modal">Tutup</button>
-                                                    <button type="submit" class="btn btnprimary">Simpan</button>
+                                                    <button type="submit" class="btn btn-primary">Ubah</button>
                                                 </div>
                                             </form>
                                         </div>
                                     </div>
                                 </div>
                                 <!-- Modal Hapus Data -->
-                                <div class="modal fade" id="hapusDataModal<?=
-                                    $data['produk_id'] ?>" tabindex="-1" role="dialog" aria-labelledby="hapusDataModalLabel<?=
-                                     $data['produk_id'] ?>" aria-hidden="true">
+                                <div class="modal fade" id="hapusDataModal" tabindex="-1" role="dialog"
+                                    aria-labelledby="hapusDataModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="hapusDataModalLabel<?= $data['produk_id'] ?>">
+                                                <h5 class="modal-title" id="hapusDataModalLabel">
                                                     Konfirmasi Penghapusan</h5>
                                                 <button type="button" class="close" datadismiss="modal" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
@@ -155,8 +181,7 @@ include '../connect.php';
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
                                                     data-dismiss="modal">Batal</button>
-                                                <a href="produk/hapus.php?id=<?=
-                                                    $data['produk_id'] ?>" class="btn btn-danger">Hapus</a>
+                                                <a href="" class="btn btn-danger">Hapus</a>
                                             </div>
                                         </div>
                                     </div>
@@ -165,8 +190,8 @@ include '../connect.php';
                         </tbody>
                     </table>
                 </div>
-            </main>
-        </div>
+    </main>
+    </div>
     </div>
     <!-- Modal tambah data -->
     <div class="modal fade" id="tambahDataModal" tabindex="-1" role="dialog" aria-labelledby="tambahDataModalLabel"

@@ -1,12 +1,6 @@
 body{
     font-family: Helvetica, sans-serif !important;
 }
-<<<<<<< HEAD
-=======
-.container  {
-    border: 1px solid red;
-}
->>>>>>> b79c358d0772730ee00d1d9433fd465eeab52ee3
 
 main{
     max-width: 100%;
@@ -67,7 +61,6 @@ main{
 .range{
     float: right;
 
-<<<<<<< HEAD
 }
 
 
@@ -112,6 +105,4 @@ main{
     background-color: grey;
     width: 200px;
     height:100%;
-=======
->>>>>>> b79c358d0772730ee00d1d9433fd465eeab52ee3
 }
