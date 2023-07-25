@@ -370,7 +370,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="tambahDataModalLabel">Tambah Data
-                        Produk</h5>
+                        Restaurant</h5>
                     <button type="button" class="close" data-dismiss="modal" arialabel="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
