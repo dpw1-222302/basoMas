@@ -20,10 +20,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['role_id'] = $user['role_id'];
         $_SESSION['email'] = $user['email'];
         $_SESSION['nama_lengkap'] = $user['nama_lengkap'];
+
+        $admin = 1;
         // Login berhasil, redirect ke halaman utama
-        header("Location: index.php?alert=berhasil");
+        if($user['role_id'] = $admin) {
+            header("Location: admin/restaurant/index.php");
+        }
+        else{
+            header("Location: index.php?alert=berhasil&idUser=". $_SESSION['user_id']);
         echo "Login berhasil";
         exit();
+        }        
     } else {
         echo "Login gagal. Silakan cek kembali email dan password Anda.";
     }

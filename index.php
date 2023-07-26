@@ -256,7 +256,6 @@
 
 
     <!-- Modal Login -->
-
     <div class="modal" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -268,25 +267,6 @@
                 </div>
                 <form action="proses_login.php" method="POST">
                     <div class="modal-body">
-                        <form action="proses_login.php" method="POST">
-                            <div class="text-center">
-                                <label for="email">Email</label>
-                                <input required type="email" class="form-control" id="email" placeholder="Masukan email"
-                                    name="email">
-                            </div>
-                            <div class="text-center">
-                                <label for="password">Password</label>
-                                <input required type="password" class="form-control" id="password"
-                                    placeholder="Masukkan password" name="password">
-                            </div>
-                            <div class="text-center">
-                                <a href="register.php">Belum punya akun? Daftar di sini</a>
-                                <div class="text-center">
-                                    <button type="submit" class="btn btn-primary btn-block">Masuk</button>
-                                </div>
-                            </div>
-                        </form>
-
                         <label for="email">Email</label>
                         <input required type="email" class="form-control" id="email" placeholder="Email" name="email">
                     </div>
@@ -296,8 +276,9 @@
                             name="password">
                     </div>
                     <div class="modal-body mb-3">Not registered? 
-                        <a class="regist" href="#registModal" data-dismiss="modal" data-toggle="modal">Create an accoun
-                            t</a>
+                        <a class="regist" href="#registModal" data-dismiss="modal" data-toggle="modal">Create an account
+                            
+                        </a>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
@@ -352,10 +333,6 @@
         integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
         crossorigin="anonymous"></script>
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous">
-        </script>
-
 
     <script>
         function cekRate() {
