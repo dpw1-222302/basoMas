@@ -83,11 +83,11 @@
                     <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
                 </form>
                 <form>
-                    <div class="container row form-group">
-                        <form action="#" method="POST">
+                    <div class="container row form-group" id="range">
+                        <form action="rating.php" method="POST">
                             <input type="range" name="rate" class="col form-control-range" max=10 min=0 id="rate">
-                            <label class="col" for=" formControlRange"> <span>0.0 - 10.0</span></label>
-                            <button type="submit" class="btn btn-dark" name="cari" onclick="cekrate()">Cari</button>
+                            <label class="col d-flex align-items-center" id="formControlRange" for="formControlRange" > <span>0.0 - 10.0</span></label>
+                            <button type="submit" class="btn btn-dark w-25" name="cari" onclick="cekrate()">Cari</button>
                         </form>
                     </div>
                 </form>
@@ -96,7 +96,7 @@
         <section class="review-section m-lg-4" >
 
             <div class="album py-6">
-                <div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 g-3">
+                <div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 g-3 justify-content-center">
 
                     <?php
                     include 'connect.php';
@@ -107,10 +107,10 @@
                         ?>
                         <a href="./restaurant.php?idResto=<?= $data['resto_id']; ?>">
                             <div class="col">
-                                <div class="card shadow-sm">
-                                    <img src="assets/img/10.png" alt="<?= $data['foto'] ?>" class="card-img-top">
+                                <div class="card shadow-sm resto-card">
+                                    <img src="assets/img/<?= $data['foto']?>" alt="<?= $data['foto'] ?>" class="card-img-top">
                                     <div class="card-body">
-                                        <h5 class="card-title text-dark">
+                                        <h5 class="card-title">
                                             <?= $data['nama_resto'] ?>
                                         </h5>
 
@@ -190,48 +190,6 @@
                     <!-- Grid column -->
 
                     <!-- Grid column -->
-                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4 text-light">
-                        <!-- Links -->
-                        <h6 class="text-uppercase fw-bold mb-4">
-                            Products
-                        </h6>
-                        <p>
-                            <a href="#!" class="text-reset">Angular</a>
-                        </p>
-                        <p>
-                            <a href="#!" class="text-reset">React</a>
-                        </p>
-                        <p>
-                            <a href="#!" class="text-reset">Vue</a>
-                        </p>
-                        <p>
-                            <a href="#!" class="text-reset">Laravel</a>
-                        </p>
-                    </div>
-                    <!-- Grid column -->
-
-                    <!-- Grid column -->
-                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4 text-light">
-                        <!-- Links -->
-                        <h6 class="text-uppercase fw-bold mb-4">
-                            Useful links
-                        </h6>
-                        <p>
-                            <a href="#!" class="text-reset">Pricing</a>
-                        </p>
-                        <p>
-                            <a href="#!" class="text-reset">Settings</a>
-                        </p>
-                        <p>
-                            <a href="#!" class="text-reset">Orders</a>
-                        </p>
-                        <p>
-                            <a href="#!" class="text-reset">Help</a>
-                        </p>
-                    </div>
-                    <!-- Grid column -->
-
-                    <!-- Grid column -->
                     <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4 text-light">
                         <!-- Links -->
                         <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
@@ -265,7 +223,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title font-weight-bold" id="loginModalLabel">SIGN IN</h5>
+                    <h5 class="modal-title font-weight-bold" id="loginModalLabel">Sign In</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -300,7 +258,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title font-weight-bold" id="registModalLabel">SIGN UP</h5>
+                    <h5 class="modal-title font-weight-bold" id="registModalLabel">Sign Up</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>

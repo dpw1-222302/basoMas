@@ -21,6 +21,7 @@ main {
 
 .navbar {
   background-color: #fcf8c1;
+
 }
 
 .title-page {
@@ -35,6 +36,16 @@ main {
   background-color: rgb(245, 245, 245);
   padding: 20px;
 }
+
+#range{
+  min-width: 500px;
+  margin: 0;
+}
+
+#formControlRange{
+  width: 2rem;
+  margin: 0 !important;
+}  
 
 .review-section {
   padding: 20px;
@@ -54,21 +65,27 @@ main {
   float: left;
 }
 
-.btn.btn-light {
-  border: 1px solid rgb(72, 17, 109);
-}
 .range {
   float: right;
 }
 
+.resto-card .card-body:hover{
+  background-color: #eeeeee;
+}
+
+
+.width-review{
+  width: 65%;
+}
+
 .rating-container {
   display: flex;
-
+  width: 200;
   align-items: center;
 }
 
 .rating-container img {
-  height: 50px;
+  height: 70px;
 
   padding-right: 1.5rem;
 }
@@ -79,12 +96,22 @@ main {
 
 .resto-container {
   border-bottom: 1px solid rgb(167, 167, 167);
-  height: 500px;
 }
 
 .resto-container div {
-  height: 95%;
-  background-color: grey;
+  display: flex;
+  border-radius: 13px;
+  height: 450px;
+  background-color: rgb(221, 221, 221);
+  justify-content: center;
+}
+
+.resto-container div img{
+  height: 100%;
+}
+
+.info-card{
+  padding: 0;
 }
 .login-container {
   display: flex;
@@ -125,11 +152,15 @@ main {
 
 .card {
   width: 300px; /* Adjust the card width as needed */
-  height: 100%;
   display: flex;
   flex-direction: column;
   overflow: hidden; /* Add this line to hide content that overflows the card */
 }
+
+.info-card .card{
+  position: sticky;
+}
+
 
 .card-img-top {
   flex: 1;
@@ -140,11 +171,14 @@ main {
 
 .card-body {
   padding: 15px;
+
+  transition: all 0.14s ease-in-out;
 }
 
 .card-title {
   font-size: 18px;
   font-weight: bold;
+  color: black;
   margin-bottom: 10px;
 }
 
@@ -154,8 +188,7 @@ main {
 }
 
 .topnav {
-  
-  background-color: #f1f1f1;
+      background-color: #f1f1f1;
 }
 
 .topnav a {
@@ -173,6 +206,9 @@ main {
   border-bottom: 3px solid #a5a3a3;
 }
 
-.topnav a.active {
-  border-bottom: 3px solid red;
+a:hover{
+  text-decoration: none !important;
 }
+
+
+

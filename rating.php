@@ -13,3 +13,4 @@ if (isset($_GET['rate'])) {
 $ex = $conn->query($query);
 
 return $ex;
+?>
