@@ -5,19 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Baso Mas</title>
-    <link rel="stylesheet" href="assets/style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+    <link href="admin/restaurant/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark topnav">
         <a class="navbar-brand" href="#">
             <img class="logo" src="assets/img/logo-basoMas.png" alt="">
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
@@ -29,22 +32,20 @@
                     <a class="nav-link text-dark" href="restaurant.html">Restaurant</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" href="#" data-toggle="modal" data-target="#exampleModal">Fan Reviews</a>
+                    <a class="nav-link text-dark" href="#" data-toggle="modal" data-target="#exampleModal">Fan
+                        Reviews</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-dark" href="#" data-toggle="modal" data-target="#exampleModal">Masuk</a>
                 </li>
             </ul>
-
-            <form class="form-inline">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-light my-1 my-sm-0" type="submit">Search</button>
-            </form>
         </div>
     </nav>
     <main>
-        <section class="title-page">
-            <h1 class="title-page">
+        <section class="title-page"
+            style="background-image:url('assets/img/head.png');background-size:cover; height: 600px;">
+
+            <h1 class="title-page mt-5 text-light">
                 Review Bakso
             </h1>
         </section>
@@ -67,38 +68,53 @@
             </div>
         </section>
         <section class="review-section m-lg-4">
-           
-            <div class="container-fluid card-deck p-2">
-            <?php
-            include 'connect.php';
-                            // menggunakan query sql agar menampilkan data produk dan join kedalam tabel user agar mendapatkan siapa pemilik produk
-                            $query = "SELECT * FROM restaurant ";
-                            $datas = $conn->query($query);
-                            foreach ($datas as $data):
-            ?>
-                <div class=" container card">
-                    <img class="card-img-top" src="assets/img/10.png" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title"><?= $data['nama_resto'] ?></h5>
-                        <h6 class="card text"><?= $data['harga'] ?></h6>
-                        <p class="card-text"><?= $data['lokasi']?></p>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">Last updated 3 mins ago</small>
-                    </div>
+
+            <div class="album py-6">
+                <div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 g-3">
+
+                    <?php
+                    include 'connect.php';
+                    // menggunakan query sql agar menampilkan data produk dan join kedalam tabel user agar mendapatkan siapa pemilik produk
+                    $query = "SELECT * FROM restaurant ";
+                    $datas = $conn->query($query);
+                    foreach ($datas as $data):
+                        ?>
+
+                        <div class="col">
+                            <div class="card shadow-sm">
+                                <img src="assets/img/10.png" alt="<?= $data['foto'] ?>" class="card-img-top">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <?= $data['nama_resto'] ?>
+                                    </h5>
+
+                                    <p class="card-text">
+                                        <?= $data['lokasi'] ?>
+                                    </p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <!-- Add any additional content here -->
+                                    </div>
+                                    <small class="text-muted">Last updated 3 mins ago</small>
+                                </div>
+                            </div>
+                        </div>
+
+                    <?php endforeach ?>
                 </div>
-                <?php endforeach ?>
             </div>
+
+
             <center class="p-5">
                 <button type="button" class="btn btn-outline-danger">Next >></button>
             </center>
         </section>
     </main>
-    <footer class="text-center text-lg-start bg-light text-muted">
+    <!-- Footer -->
+    <footer class="text-center text-lg-start text-muted" style="background-color:#E4B100;">
         <!-- Section: Social media -->
         <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
             <!-- Left -->
-            <div class="me-5 d-none d-lg-block">
+            <div class="me-5 d-none d-lg-block text-light">
                 <span>Get connected with us on social networks:</span>
             </div>
             <!-- Left -->
@@ -134,10 +150,10 @@
                 <!-- Grid row -->
                 <div class="row mt-3">
                     <!-- Grid column -->
-                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4 text-light">
                         <!-- Content -->
                         <h6 class="text-uppercase fw-bold mb-4">
-                            <i class="fas fa-gem me-3"></i>Baso Mas
+                            <i class="fas fa-gem me-3"></i> Baso Mas
                         </h6>
                         <p>
                             Here you can use rows and columns to organize your footer content. Lorem ipsum
@@ -147,7 +163,7 @@
                     <!-- Grid column -->
 
                     <!-- Grid column -->
-                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4 text-light">
                         <!-- Links -->
                         <h6 class="text-uppercase fw-bold mb-4">
                             Products
@@ -168,7 +184,7 @@
                     <!-- Grid column -->
 
                     <!-- Grid column -->
-                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4 text-light">
                         <!-- Links -->
                         <h6 class="text-uppercase fw-bold mb-4">
                             Useful links
@@ -189,7 +205,7 @@
                     <!-- Grid column -->
 
                     <!-- Grid column -->
-                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4 text-light">
                         <!-- Links -->
                         <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
                         <p><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
@@ -208,15 +224,13 @@
         <!-- Section: Links  -->
 
         <!-- Copyright -->
-        <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+        <div class="text-center p-4 text-light" style="background-color: rgba(0, 0, 0, 0.05);">
             © 2021 Copyright:
             <a class="text-danger fw-bold" href="">Baso Mas</a>
         </div>
         <!-- Copyright -->
     </footer>
     <!-- Footer -->
-
-
     <!-- Add the Bootstrap CSS and JavaScript files as mentioned above -->
 
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -233,11 +247,13 @@
                         <form action="proses_login.php" method="POST">
                             <div class="text-center">
                                 <label for="email">Email</label>
-                                <input required type="email" class="form-control" id="email" placeholder="Masukan email" name="email">
+                                <input required type="email" class="form-control" id="email" placeholder="Masukan email"
+                                    name="email">
                             </div>
                             <div class="text-center">
                                 <label for="password">Password</label>
-                                <input required type="password" class="form-control" id="password" placeholder="Masukkan password" name="password">
+                                <input required type="password" class="form-control" id="password"
+                                    placeholder="Masukkan password" name="password">
                             </div>
                             <div class="text-center">
                                 <a href="register.php">Belum punya akun? Daftar di sini</a>
@@ -254,8 +270,12 @@
     </div>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+        crossorigin="anonymous"></script>
 
 
     <script>
@@ -271,8 +291,8 @@
         }
     </script>
     <script>
-        $(document).ready(function() {
-            $('.rate').on('change', function() {
+        $(document).ready(function () {
+            $('.rate').on('change', function () {
 
                 var rate = $('#rate').val();
                 $.ajax({
@@ -284,7 +304,7 @@
                 });
             });
 
-            $('.rate').on('click', function() {
+            $('.rate').on('click', function () {
                 var rate = $('#rate').val();
                 $.ajax({
                     type: "POST",
@@ -296,7 +316,6 @@
             });
         });
     </script>
-
 </body>
 
 </html>

@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         header("location:restaurant.php?alert=berhasil");
     } else {
-        header("location:restaurant.php?alert=gagak_ukuran");
+        header("location:restaurant.php?alert=gagal_ukuran");
     }
 }
 
