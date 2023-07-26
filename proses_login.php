@@ -21,9 +21,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['email'] = $user['email'];
         $_SESSION['nama_lengkap'] = $user['nama_lengkap'];
 
-        $admin = 1;
-        // Login berhasil, redirect ke halaman utama
-        if($user['role_id'] = $admin) {
+        // Login berhasil, redirect ke halaman utama jika admin ke halaman admin
+        if($user['role_id'] == 1) {
             header("Location: admin/restaurant/tables.php");
         }
         else{

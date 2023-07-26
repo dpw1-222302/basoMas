@@ -19,10 +19,17 @@ include 'connect.php'
 <body>
     <?php
     $id = $_GET['idResto'];
+    $idAvg = $_GET['idResto'];
+    $avgQuery = "SELECT AVG(rating) FROM review WHERE resto_id='$idAvg'";
     $query = "SELECT * FROM restaurant WHERE resto_id = '$id'";
     $datas = $conn->query($query);
     foreach ($datas as $data):
-    endforeach ?>
+    endforeach;
+    
+    $avg = $conn->query($avgQuery);
+    $average = mysqli_fetch_column($avg);
+    $averageRounded = round($average, 1);
+    ?>
     <nav class="sticky-top navbar navbar-expand-lg navbar-light bg-light topnav">
 
         <a class="navbar-brand" href="index.php">
@@ -104,8 +111,13 @@ include 'connect.php'
                     <div class="container mb-4">
                         <!-- icon rating -->
                         <div class="rating-container">
-                            <img src="assets/img/Logo Rating.png" alt="">
-                            <div class="user-info">
+                            <div class="container-rating">
+                                <img src="assets/img/Logo Rating.png" alt="">
+                                <p>
+                                    <?= $averageRounded; ?>
+                                </p>
+                            </div>
+                            <div class="user-info p-2">
                                 <p class="score font-weight-bold">Score</p>
                                 <p class="text-secondary">
                                     <?= $data['nama_resto']; ?> got rated for 0.0
@@ -115,8 +127,9 @@ include 'connect.php'
                         </div>
 
                         <div class="d-block position-relative">
-                            <div class="resto-container mt-2 position-relative" style="background-image: url('assets/upload/restaurant/<?= $data['foto']?>'); ">
-  
+                            <div class="resto-container mt-2 position-relative"
+                                style="background-image: url('assets/upload/restaurant/<?= $data['foto'] ?>'); ">
+
                                 <div class="d-flex img-resto">
                                     <img src="assets/upload/restaurant/<?= $data['foto'] ?>"
                                         alt="<?= $data['nama_resto']; ?>">
@@ -141,8 +154,8 @@ include 'connect.php'
                         ?>
                         <div class="review-container">
                             <div class="review-image border-radius">
-                                <div class="image-dummy">
-
+                                <div class="d-flex image-dummy">
+                                    <img src="./assets/upload/restaurant/1.png" alt="<?= $review['foto_review'] ?>">
                                 </div>
                             </div>
                             <div class="col card" style="width: 100%;">

@@ -15,49 +15,64 @@
 </head>
 
 <body>
-<nav class="sticky-top navbar navbar-expand-lg navbar-light bg-light topnav">
+    <nav class="sticky-top navbar navbar-expand-lg navbar-light bg-light topnav">
 
-<a class="navbar-brand" href="index.php">
-    <img class="logo" src="assets/img/logo.png" alt="">
-</a>
-<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-</button>
+        <a class="navbar-brand" href="index.php">
+            <img class="logo" src="assets/img/logo.png" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-<div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-            <a class="nav-link" href="index.php">Home</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#fan-review">Fan Reviews</a>
-        </li>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.php">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#fan-review">Fan Reviews</a>
+                </li>
 
-        <?php
-        session_start();
+                <?php
+                session_start();
 
-        if (!empty($_SESSION['email'])) {
-            ?>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <?= $_SESSION['nama_lengkap'] ?>
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="logout.php">Logout</a>
-                </div>
-            </li>
-            <?php
-        } else { ?>
-            <li class="nav-item">
-                <a class="nav-link" href="#loginModal" data-toggle="modal">Sign In</a>
-            </li>
-            <?php
-        } ?>
-    </ul>
-</div>
-</nav>
+                if (!empty($_SESSION['email'])) {
+                    ?>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <?= $_SESSION['nama_lengkap'] ?>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <?php
+                            if ($_SESSION['role_id'] == 1) {
+                                // Non-admin items first
+                                ?>
+                                <li><a class="dropdown-item " href="admin/restaurant/tables.php">Admin</a></li>
+                                <li><a class="dropdown-item" href="logout.php">Logout</a></li>
+                                <?php
+                            } else {
+                                // Admin items first
+                                ?>
+                                
+                                <li><a class="dropdown-item" href="logout.php">Logout</a></li>
+                                <?php
+                            }
+                            ?>
+                        </ul>
+                    </li>
+                    </li>
+                    <?php
+                } else { ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#loginModal" data-toggle="modal">Sign In</a>
+                    </li>
+                    <?php
+                } ?>
+            </ul>
+        </div>
+    </nav>
     <main>
         <!-- Navbar -->
 
@@ -86,14 +101,16 @@
                     <div class="container row form-group" id="range">
                         <form action="rating.php" method="POST">
                             <input type="range" name="rate" class="col form-control-range" max=10 min=0 id="rate">
-                            <label class="col d-flex align-items-center" id="formControlRange" for="formControlRange" > <span>0.0 - 10.0</span></label>
-                            <button type="submit" class="btn btn-dark w-25" name="cari" onclick="cekrate()">Cari</button>
+                            <label class="col d-flex align-items-center" id="formControlRange" for="formControlRange">
+                                <span>0.0 - 10.0</span></label>
+                            <button type="submit" class="btn btn-dark w-25" name="cari"
+                                onclick="cekrate()">Cari</button>
                         </form>
                     </div>
                 </form>
             </div>
         </section>
-        <section class="review-section m-lg-4" >
+        <section class="review-section m-lg-4">
 
             <div class="album py-6">
                 <div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 g-3 justify-content-center">
@@ -108,7 +125,8 @@
                         <a href="./restaurant.php?idResto=<?= $data['resto_id']; ?>">
                             <div class="col">
                                 <div class="card shadow-review resto-card">
-                                    <img src="assets/img/<?= $data['foto']?>" alt="<?= $data['foto'] ?>" class="card-img-top">
+                                    <img src="assets/img/<?= $data['foto'] ?>" alt="<?= $data['foto'] ?>"
+                                        class="card-img-top">
                                     <div class="card-body">
                                         <h5 class="card-title">
                                             <?= $data['nama_resto'] ?>
@@ -239,7 +257,8 @@
                             name="password">
                     </div>
                     <div class="modal-body mb-3">Not registered?
-                        <a class="text-primary regist" href="#registModal" data-dismiss="modal" data-toggle="modal">Create an account
+                        <a class="text-primary regist" href="#registModal" data-dismiss="modal"
+                            data-toggle="modal">Create an account
 
                         </a>
                     </div>

@@ -92,8 +92,6 @@ main {
 
 .rating-container img {
   height: 70px;
-
-  padding-right: 1.5rem;
 }
 
 .rating-container .user-info p {
@@ -141,7 +139,12 @@ p.score{
 
 .review-container .review-image .image-dummy {
   background-color: grey;
+  border-radius: 1rem;
   width: 200px;
+  height: 200px;
+}
+
+.review-image .image-dummy img{
   height: 100%;
 }
 
@@ -222,6 +225,28 @@ p.score{
 
 a:hover{
   text-decoration: none !important;
+}
+
+.container-rating {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.container-rating img {
+  display: block;
+}
+
+.container-rating p {
+  font-size: large;
+  position: absolute;
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -74%); /* Center both vertically and horizontally */
+  margin: 0; /* Optional, remove any default margins for the <p> element */
+  padding: 5px 10px; /* Optional styling for the <p> element */
+  font-weight: bold; /* Optional styling for the <p> element */
 }
 
 footer{

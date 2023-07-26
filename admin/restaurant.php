@@ -17,19 +17,6 @@
 </head>
 
 <body>
-    <!-- Sidebar -->
-    <!-- <div class="container-fluid">
-        <div class="row">
-            <nav class="col-md-1 d-none d-md-block bg-light sidebar">
-                <div class="sidebar-sticky">
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#">Restaurant</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav> -->
-
     <!-- Content -->
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
         <div class="row">
