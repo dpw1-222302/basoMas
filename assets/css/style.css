@@ -105,27 +105,40 @@ main {
   height: 100%;
 }
 
-/* CSS untuk card */
-.container {
-  max-width: 300px; /* Atur lebar maksimum kartu */
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Efek bayangan untuk kartu */
-  transition: box-shadow 0.3s ease;
+.album {
+  padding-top: 30px; /* Adjust as needed */
 }
 
-.container:hover {
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Efek bayangan saat mengarahkan kursor ke kartu */
+.scroll-container {
+  overflow-x: auto;
+  display: flex;
+  gap: 20px; /* Adjust as needed */
 }
 
-/* CSS untuk gambar kartu */
+.row-cols-1 {
+  display: grid;
+  grid-template-columns: repeat(
+    1,
+    1fr
+  ); /* Change this value for different column layouts */
+  gap: 20px; /* Adjust as needed */
+}
+
+.card {
+  width: 300px; /* Adjust the card width as needed */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Add this line to hide content that overflows the card */
+}
+
 .card-img-top {
-  width: 100%;
-  height: auto;
+  flex: 1;
+  object-fit: cover;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
-/* CSS untuk bagian isi kartu */
 .card-body {
   padding: 15px;
 }
@@ -133,35 +146,17 @@ main {
 .card-title {
   font-size: 18px;
   font-weight: bold;
-  margin: 0;
+  margin-bottom: 10px;
 }
 
 .card-text {
   font-size: 14px;
   color: #555;
-  margin: 5px 0;
-}
-
-.card-footer {
-  padding: 10px;
-  background-color: #f9f9f9;
-  text-align: right;
-}
-
-/* CSS untuk teks kecil di bagian footer kartu */
-.card-footer small {
-  font-size: 12px;
-  color: #888;
-}
-
-/* CSS untuk teks yang diberi penekanan */
-.card-text.highlight {
-  color: #007bff; /* Warna teks diberi penekanan */
-  font-weight: bold;
 }
 
 .topnav {
-  background-color: #000000;
+  overflow: hidden;
+  background-color: #f1f1f1;
 }
 
 .topnav a {
@@ -175,6 +170,10 @@ main {
   border-bottom: 3px solid transparent;
 }
 
-.topnav .nav-item a:hover {
-  border-bottom: 3px solid #fd7e14;
+.topnav a:hover {
+  border-bottom: 3px solid red;
+}
+
+.topnav a.active {
+  border-bottom: 3px solid red;
 }

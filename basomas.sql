@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 25, 2023 at 10:02 AM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.1.17
+-- Generation Time: Jul 26, 2023 at 09:14 AM
+-- Server version: 10.4.25-MariaDB
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -37,7 +37,7 @@ CREATE TABLE `restaurant` (
   `no_telp` varchar(20) DEFAULT NULL,
   `jam_buka` char(5) DEFAULT NULL,
   `jam_tutup` char(5) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `restaurant`
@@ -63,7 +63,7 @@ CREATE TABLE `review` (
   `foto_review` varchar(500) DEFAULT NULL,
   `rating` float DEFAULT NULL,
   `caption` varchar(300) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `review`
@@ -81,7 +81,7 @@ INSERT INTO `review` (`review_id`, `user_id`, `resto_id`, `created_at`, `foto_re
 CREATE TABLE `role` (
   `role_id` int(11) NOT NULL,
   `role_name` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `role`
@@ -103,7 +103,7 @@ CREATE TABLE `user` (
   `nama_lengkap` varchar(200) DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL,
   `password` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `user`
@@ -111,7 +111,9 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`user_id`, `role_id`, `nama_lengkap`, `email`, `password`) VALUES
 (1, 1, 'Azelia Puspa Diah Narendri', '21104007@ittelkom-pwt.ac,id', '21104007'),
-(2, 2, 'Asty Yuliani', '21104023@ittelkom-pwt.ac.id', '21104023');
+(2, 2, 'Asty Yuliani', '21104023@ittelkom-pwt.ac.id', '21104023'),
+(3, 2, 'Asty', '21104023@ittelkom-pwt.ac.id', '21104023'),
+(4, 2, 'Lintang Suryaningrum', '21104013@ittelkom-pwt.ac.id', '21104013');
 
 --
 -- Indexes for dumped tables
@@ -170,7 +172,7 @@ ALTER TABLE `role`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables

@@ -10,6 +10,7 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+    <link href="admin/restaurant/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
 </head>
 
@@ -62,7 +63,9 @@
                 </ul>
             </div>
         </nav>
-        <section class="title-page">
+        <section class="title-page"
+            style="background-image:url('assets/img/head.png');background-size:cover; height: 600px;">
+
             <h1 class="title-page">
                 The best reviews of the best meatball.
             </h1>
@@ -76,50 +79,63 @@
                 </form>
                 <form>
                     <div class="container row form-group">
-                        <input type="range" class="col form-control-range" id="formControlRange">
-                        <label class="col" for=" formControlRange"> <span>0.0 - 10.0</span></label>
+                        <form action="#" method="POST">
+                            <input type="range" name="rate" class="col form-control-range" max=10 min=0 id="rate">
+                            <label class="col" for=" formControlRange"> <span>0.0 - 10.0</span></label>
+                            <button type="submit" class="btn btn-primary" name="cari" onclick="cekrate()">Cari</button>
+                        </form>
                     </div>
                 </form>
             </div>
         </section>
         <section class="review-section m-lg-4">
-            <div class="container-fluid card-deck p-2">
-                <?php
-                include 'connect.php';
-                // menggunakan query sql agar menampilkan data produk dan join kedalam tabel user agar mendapatkan siapa pemilik produk
-                $query = "SELECT * FROM restaurant ";
-                $datas = $conn->query($query);
-                foreach ($datas as $data):
-                    ?>
-                <div class=" container card">
-                    <img class="card-img-top" src="..." alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            <?= $data['nama_resto'] ?>
-                        </h5>
-                        <h6 class="card text">
-                            <?= $data['harga'] ?>
-                        </h6>
-                        <p class="card-text">
-                            <?= $data['lokasi'] ?>
-                        </p>
+
+            <div class="album py-6">
+                <div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 g-3">
+
+                    <?php
+                    include 'connect.php';
+                    // menggunakan query sql agar menampilkan data produk dan join kedalam tabel user agar mendapatkan siapa pemilik produk
+                    $query = "SELECT * FROM restaurant ";
+                    $datas = $conn->query($query);
+                    foreach ($datas as $data):
+                        ?>
+
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <img src="assets/img/10.png" alt="<?= $data['foto'] ?>" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <?= $data['nama_resto'] ?>
+                                </h5>
+
+                                <p class="card-text">
+                                    <?= $data['lokasi'] ?>
+                                </p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <!-- Add any additional content here -->
+                                </div>
+                                <small class="text-muted">Last updated 3 mins ago</small>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-footer">
-                        <small class="text-muted">Last updated 3 mins ago</small>
-                    </div>
+
+                    <?php endforeach ?>
                 </div>
-                <?php endforeach ?>
             </div>
+
+
             <center class="p-5">
                 <button type="button" class="btn btn-outline-danger">Next >></button>
             </center>
         </section>
     </main>
-    <footer class="text-center text-lg-start bg-light text-muted">
+    <!-- Footer -->
+    <footer class="text-center text-lg-start text-muted" style="background-color:#E4B100;">
         <!-- Section: Social media -->
         <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
             <!-- Left -->
-            <div class="me-5 d-none d-lg-block">
+            <div class="me-5 d-none d-lg-block text-light">
                 <span>Get connected with us on social networks:</span>
             </div>
             <!-- Left -->
@@ -155,10 +171,10 @@
                 <!-- Grid row -->
                 <div class="row mt-3">
                     <!-- Grid column -->
-                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4 text-light">
                         <!-- Content -->
                         <h6 class="text-uppercase fw-bold mb-4">
-                            <i class="fas fa-gem me-3"></i>Baso Mas
+                            <i class="fas fa-gem me-3"></i> Baso Mas
                         </h6>
                         <p>
                             Here you can use rows and columns to organize your footer content. Lorem ipsum
@@ -168,7 +184,7 @@
                     <!-- Grid column -->
 
                     <!-- Grid column -->
-                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4 text-light">
                         <!-- Links -->
                         <h6 class="text-uppercase fw-bold mb-4">
                             Products
@@ -189,7 +205,7 @@
                     <!-- Grid column -->
 
                     <!-- Grid column -->
-                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4 text-light">
                         <!-- Links -->
                         <h6 class="text-uppercase fw-bold mb-4">
                             Useful links
@@ -210,7 +226,7 @@
                     <!-- Grid column -->
 
                     <!-- Grid column -->
-                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4 text-light">
                         <!-- Links -->
                         <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
                         <p><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
@@ -229,7 +245,7 @@
         <!-- Section: Links  -->
 
         <!-- Copyright -->
-        <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+        <div class="text-center p-4 text-light" style="background-color: rgba(0, 0, 0, 0.05);">
             © 2021 Copyright:
             <a class="text-danger fw-bold" href="">Baso Mas</a>
         </div>
@@ -308,11 +324,52 @@
     </div>
     </div>
 
+
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous">
+    </script>
+
+
+    <script>
+    function cekRate() {
+        var rate = $('#rate').val();
+        $.ajax({
+            type: "POST",
+            url: 'rating.php',
+            data: {
+                rate: rate
+            }
+        });
+    }
+    </script>
+    <script>
+    $(document).ready(function() {
+        $('.rate').on('change', function() {
+
+            var rate = $('#rate').val();
+            $.ajax({
+                type: "POST",
+                url: 'rating.php',
+                data: {
+                    rate: rate
+                }
+            });
+        });
+
+        $('.rate').on('click', function() {
+            var rate = $('#rate').val();
+            $.ajax({
+                type: "POST",
+                url: 'rating.php',
+                data: {
+                    rate: rate
+                }
+            });
+        });
+    });
     </script>
 </body>
 
