@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 20, 2023 at 11:48 AM
+-- Generation Time: Jul 26, 2023 at 09:14 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -44,10 +44,10 @@ CREATE TABLE `restaurant` (
 --
 
 INSERT INTO `restaurant` (`resto_id`, `foto`, `video`, `nama_resto`, `harga`, `lokasi`, `no_telp`, `jam_buka`, `jam_tutup`) VALUES
-(1, '\"C:\\Users\\MSI\\OneDrive\\Dokumen\\Baso Mas\\Bakso\\1.png\"', '\"C:\\Users\\MSI\\OneDrive\\Dokumen\\Baso Mas\\Bakso Review.mp4\"', 'Bakso & Soto \"Sami Asih\"', 25000, 'Jl. Pramuka No.23, Sodagaran, Purwokerto Kulon, Kec. Purwokerto Sel., Kabupaten Banyumas, Jawa Tengah 53141', '+62 856-4784-6450', '11:00', '21:00'),
-(2, '\"C:\\Users\\MSI\\OneDrive\\Dokumen\\Baso Mas\\Bakso\\2.png\"', '\"C:\\Users\\MSI\\OneDrive\\Dokumen\\Baso Mas\\Bakso Review.mp4\"', 'Bakso Kebondalem Purwokerto', 18000, 'Jl. Perintis Kemerdekaan, Karangbawang, Purwokerto Lor, Kec. Purwokerto Sel., Kabupaten Banyumas, Jawa Tengah 53141', '+62 888-9991-9636', '11:00', '21:00'),
-(3, '\"C:\\Users\\MSI\\OneDrive\\Dokumen\\Baso Mas\\Bakso\\3.png\"', '\"C:\\Users\\MSI\\OneDrive\\Dokumen\\Baso Mas\\Bakso Review.mp4\"', 'Bakso Banjarnegara', 20000, 'H6GV+893, Kebondalem, Purwokerto Lor, Purwokerto Timur, Banyumas Regency, Central Java 53114', '+62 852-0123-4763', '10:00', '17:30'),
-(4, '\"C:\\Users\\MSI\\OneDrive\\Dokumen\\Baso Mas\\Bakso\\4.png\"', '\"C:\\Users\\MSI\\OneDrive\\Dokumen\\Baso Mas\\Bakso Review.mp4\"', 'Warung Bakso Cuanki & Siomay Wahyuningsari', 18000, 'Jl. Pramuka, Samudra, Purwokerto Kulon, Kec. Purwokerto Sel., Kabupaten Banyumas, Jawa Tengah 53147', '+62 857-4798-1234', '10:00', '19:00');
+(1, '1.png', '', 'Bakso & Soto ', 25000, 'Jl. Pramuka No.23, Sodagaran, Purwokerto Kulon, Kec. Purwokerto Sel., Kabupaten Banyumas, Jawa Tengah 53141', '+62 856-4784-6450', '11:00', '21:00'),
+(2, '6.png', 'youtube.com/watch?v=OrlkAu0drkQ', 'Bakso Kebondalem Purwokerto', 18000, 'Jl. Perintis Kemerdekaan, Karangbawang, Purwokerto Lor, Kec. Purwokerto Sel., Kabupaten Banyumas, Jawa Tengah 53141', '+62 888-9991-9636', '11:00', '21:00'),
+(3, '1.png', 'youtube.com/watch?v=OrlkAu0drkQ', 'Bakso Banjarnegara', 20000, 'H6GV+893, Kebondalem, Purwokerto Lor, Purwokerto Timur, Banyumas Regency, Central Java 53114', '+62 852-0123-4763', '10:00', '17:30'),
+(4, '6.png', 'youtube.com/watch?v=OrlkAu0drkQ', 'Warung Bakso Cuanki & Siomay Wahyuningsari', 18000, 'Jl. Pramuka, Samudra, Purwokerto Kulon, Kec. Purwokerto Sel., Kabupaten Banyumas, Jawa Tengah 53147', '+62 857-4798-1234', '10:00', '19:00');
 
 -- --------------------------------------------------------
 
@@ -111,7 +111,9 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`user_id`, `role_id`, `nama_lengkap`, `email`, `password`) VALUES
 (1, 1, 'Azelia Puspa Diah Narendri', '21104007@ittelkom-pwt.ac,id', '21104007'),
-(2, 2, 'Asty Yuliani', '21104023@ittelkom-pwt.ac.id', '21104023');
+(2, 2, 'Asty Yuliani', '21104023@ittelkom-pwt.ac.id', '21104023'),
+(3, 2, 'Asty', '21104023@ittelkom-pwt.ac.id', '21104023'),
+(4, 2, 'Lintang Suryaningrum', '21104013@ittelkom-pwt.ac.id', '21104013');
 
 --
 -- Indexes for dumped tables
@@ -152,7 +154,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `restaurant`
 --
 ALTER TABLE `restaurant`
-  MODIFY `resto_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `resto_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `review`
@@ -170,7 +172,7 @@ ALTER TABLE `role`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
