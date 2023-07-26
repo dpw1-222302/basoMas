@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $admin = 1;
         // Login berhasil, redirect ke halaman utama
         if($user['role_id'] = $admin) {
-            header("Location: admin/restaurant/index.php");
+            header("Location: admin/restaurant/tables.php");
         }
         else{
             header("Location: index.php?alert=berhasil&idUser=". $_SESSION['user_id']);

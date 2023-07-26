@@ -15,80 +15,85 @@
 </head>
 
 <body>
+<nav class="sticky-top navbar navbar-expand-lg navbar-light bg-light topnav">
+
+<a class="navbar-brand" href="index.php">
+    <img class="logo" src="assets/img/logo.png" alt="">
+</a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="index.php">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#fan-review">Fan Reviews</a>
+        </li>
+
+        <?php
+        session_start();
+
+        if (!empty($_SESSION['email'])) {
+            ?>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <?= $_SESSION['nama_lengkap'] ?>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="logout.php">Logout</a>
+                </div>
+            </li>
+            <?php
+        } else { ?>
+            <li class="nav-item">
+                <a class="nav-link" href="#loginModal" data-toggle="modal">Sign In</a>
+            </li>
+            <?php
+        } ?>
+    </ul>
+</div>
+</nav>
     <main>
         <!-- Navbar -->
-        <nav class="sticky-top navbar navbar-expand-lg navbar-light bg-light topnav">
 
-            <a class="navbar-brand">
-                <img class="logo" src="assets/img/logo-basoMas.png" alt="">
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+        <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="restaurant.html">Restaurant</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Fan Reviews</a>
-                    </li>
+            <div class="carousel-inner">
+                <!-- <h1 class="title-page text-dark text center">
+                    "The best review of the best Bakso."
+                </h1> -->
 
-                    <?php
-                    session_start();
-
-                    if (!empty($_SESSION['email'])) {
-                        ?>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <?= $_SESSION['nama_lengkap'] ?>
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="logout.php">Logout</a>
-                            </div>
-                        </li>
-                        <?php
-                    } else { ?>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#loginModal" data-toggle="modal">Sign In</a>
-                        </li>
-                        <?php
-                    } ?>
-                </ul>
+                <div class="carousel-item active">
+                    <img src="assets/img/head.png" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                    </div>
+                </div>
             </div>
-        </nav>
-        <section class="title-page"
-            style="background-image:url('assets/img/head.png');background-size:cover; height: 600px;">
-
-            <h1 class="title-page">
-                The best reviews of the best meatball.
-            </h1>
-        </section>
-        <section class="page-filter">
+        </div>
+        <section class="page-filter" id="fan-review">
             <div class="filter-container d-flex justify-content-between mx-auto">
                 <form class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search for a restaurant..."
                         aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
                 </form>
                 <form>
                     <div class="container row form-group">
                         <form action="#" method="POST">
                             <input type="range" name="rate" class="col form-control-range" max=10 min=0 id="rate">
                             <label class="col" for=" formControlRange"> <span>0.0 - 10.0</span></label>
-                            <button type="submit" class="btn btn-primary" name="cari" onclick="cekrate()">Cari</button>
+                            <button type="submit" class="btn btn-dark" name="cari" onclick="cekrate()">Cari</button>
                         </form>
                     </div>
                 </form>
             </div>
         </section>
-        <section class="review-section m-lg-4">
+        <section class="review-section m-lg-4" >
 
             <div class="album py-6">
                 <div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 g-3">
@@ -105,7 +110,7 @@
                                 <div class="card shadow-sm">
                                     <img src="assets/img/10.png" alt="<?= $data['foto'] ?>" class="card-img-top">
                                     <div class="card-body">
-                                        <h5 class="card-title">
+                                        <h5 class="card-title text-dark">
                                             <?= $data['nama_resto'] ?>
                                         </h5>
 
@@ -132,7 +137,7 @@
         </section>
     </main>
     <!-- Footer -->
-    <footer class="text-center text-lg-start text-muted" style="background-color:#E4B100;">
+    <footer class="text-center text-lg-start text-muted" style="background-color:#cfc6b4;">
         <!-- Section: Social media -->
         <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
             <!-- Left -->
@@ -275,20 +280,20 @@
                         <input required type="password" class="form-control" id="password" placeholder="Password"
                             name="password">
                     </div>
-                    <div class="modal-body mb-3">Not registered? 
-                        <a class="regist" href="#registModal" data-dismiss="modal" data-toggle="modal">Create an account
-                            
+                    <div class="modal-body mb-3">Not registered?
+                        <a class="text-primary regist" href="#registModal" data-dismiss="modal" data-toggle="modal">Create an account
+
                         </a>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                        <button name="submit" type="submit" class="btn btn-primary">Sign In</button>
+                        <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Cancel</button>
+                        <button name="submit" type="submit" class="btn btn-dark">Sign In</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
-    
+
 
     <!-- Modal Regist -->
     <div class="modal" id="registModal" tabindex="-1" aria-labelledby="registModalLabel" aria-hidden="true">
@@ -317,8 +322,8 @@
                     <div class="modal-body mb-3">Already have an account? <a class="regist" href="#loginModal"
                             data-dismiss="modal" data-toggle="modal">Sign In</a></div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                        <button name="submit" type="submit" class="btn btn-primary">Sign Up</button>
+                        <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Cancel</button>
+                        <button name="submit" type="submit" class="btn btn-dark">Sign Up</button>
                     </div>
 
                 </form>
@@ -327,7 +332,8 @@
     </div>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"

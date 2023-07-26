@@ -21,7 +21,6 @@ main {
 
 .navbar {
   background-color: #fcf8c1;
-  border-bottom: 1pt solid grey;
 }
 
 .title-page {
@@ -170,8 +169,8 @@ main {
   border-bottom: 3px solid transparent;
 }
 
-.topnav a:hover {
-  border-bottom: 3px solid red;
+.topnav .navbar-nav a:hover {
+  border-bottom: 3px solid #a5a3a3;
 }
 
 .topnav a.active {
