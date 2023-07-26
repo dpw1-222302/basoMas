@@ -285,27 +285,29 @@
                                     <button type="submit" class="btn btn-primary btn-block">Masuk</button>
                                 </div>
                             </div>
+                        </form>
+
+                        <label for="email">Email</label>
+                        <input required type="email" class="form-control" id="email" placeholder="Email" name="email">
+                    </div>
+                    <div class="modal-body">
+                        <label for="password">Password</label>
+                        <input required type="password" class="form-control" id="password" placeholder="Password"
+                            name="password">
+                    </div>
+                    <div class="modal-body mb-3">Not registered? 
+                        <a class="regist" href="#registModal" data-dismiss="modal" data-toggle="modal">Create an accoun
+                            t</a>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button name="submit" type="submit" class="btn btn-primary">Sign In</button>
+                    </div>
                 </form>
-                
-                <label for="email">Email</label>
-                <input required type="email" class="form-control" id="email" placeholder="Email" name="email">
             </div>
-            <div class="modal-body">
-                <label for="password">Password</label>
-                <input required type="password" class="form-control" id="password" placeholder="Password"
-                    name="password">
-            </div>
-            <div class="modal-body mb-3">Not registered? <a class="regist" href="#registModal" data-dismiss="modal"
-                    data-toggle="modal">Create an account</a></div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                <button name="submit" type="submit" class="btn btn-primary">Sign In</button>
-            </div>
-            </form>
         </div>
     </div>
-    </div>
-    </div>
+    
 
     <!-- Modal Regist -->
     <div class="modal" id="registModal" tabindex="-1" aria-labelledby="registModalLabel" aria-hidden="true">
@@ -336,18 +338,15 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                         <button name="submit" type="submit" class="btn btn-primary">Sign Up</button>
-                        >>>>>>> 1264bf1b5197f7d0f6bf9567aecd63619dde7f15
                     </div>
 
                 </form>
             </div>
         </div>
     </div>
-    </div>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" <<<<<<< HEAD
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
@@ -382,19 +381,19 @@
                         rate: rate
                     }
                 });
-        });
+            });
 
-        $('.rate').on('click', function() {
-            var rate = $('#rate').val();
-            $.ajax({
-                type: "POST",
-                url: 'rating.php',
-                data: {
-                    rate: rate
-                }
+            $('.rate').on('click', function () {
+                var rate = $('#rate').val();
+                $.ajax({
+                    type: "POST",
+                    url: 'rating.php',
+                    data: {
+                        rate: rate
+                    }
+                });
             });
         });
-    });
     </script>
 </body>
 
