@@ -1,0 +1,180 @@
+body {
+  font-family: Helvetica, sans-serif !important;
+}
+
+main {
+  max-width: 100%;
+}
+
+.logo {
+  max-height: 40px;
+}
+.spacer-05 {
+  width: 100%;
+  height: 50px;
+}
+
+.im {
+  max-width: 100%;
+  max-height: 200px;
+}
+
+.navbar {
+  background-color: #fcf8c1;
+  border-bottom: 1pt solid grey;
+}
+
+.title-page {
+  padding: 20px 20px;
+  text-decoration: none;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bolder;
+}
+
+.page-filter {
+  background-color: rgb(245, 245, 245);
+  padding: 20px;
+}
+
+.review-section {
+  padding: 20px;
+}
+
+.form-group {
+  display: inline-block;
+}
+
+.form-group label {
+  display: inline;
+  position: end;
+}
+
+.btn-group {
+  padding: 10px;
+  float: left;
+}
+
+.btn.btn-light {
+  border: 1px solid rgb(72, 17, 109);
+}
+.range {
+  float: right;
+}
+
+.rating-container {
+  display: flex;
+
+  align-items: center;
+}
+
+.rating-container img {
+  height: 50px;
+
+  padding-right: 1.5rem;
+}
+
+.rating-container .user-info p {
+  margin: 0;
+}
+
+.resto-container {
+  border-bottom: 1px solid rgb(167, 167, 167);
+  height: 500px;
+}
+
+.resto-container div {
+  height: 95%;
+  background-color: grey;
+}
+.login-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.review-container {
+  display: flex;
+  padding: 20px;
+
+  margin-top: 2rem;
+}
+
+.review-container .review-image .image-dummy {
+  background-color: grey;
+  width: 200px;
+  height: 100%;
+}
+
+/* CSS untuk card */
+.container {
+  max-width: 300px; /* Atur lebar maksimum kartu */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Efek bayangan untuk kartu */
+  transition: box-shadow 0.3s ease;
+}
+
+.container:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Efek bayangan saat mengarahkan kursor ke kartu */
+}
+
+/* CSS untuk gambar kartu */
+.card-img-top {
+  width: 100%;
+  height: auto;
+}
+
+/* CSS untuk bagian isi kartu */
+.card-body {
+  padding: 15px;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-text {
+  font-size: 14px;
+  color: #555;
+  margin: 5px 0;
+}
+
+.card-footer {
+  padding: 10px;
+  background-color: #f9f9f9;
+  text-align: right;
+}
+
+/* CSS untuk teks kecil di bagian footer kartu */
+.card-footer small {
+  font-size: 12px;
+  color: #888;
+}
+
+/* CSS untuk teks yang diberi penekanan */
+.card-text.highlight {
+  color: #007bff; /* Warna teks diberi penekanan */
+  font-weight: bold;
+}
+
+.topnav {
+  background-color: #000000;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  border-bottom: 3px solid transparent;
+}
+
+.topnav .nav-item a:hover {
+  border-bottom: 3px solid #fd7e14;
+}

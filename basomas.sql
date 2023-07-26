@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 20, 2023 at 11:48 AM
--- Server version: 10.4.25-MariaDB
--- PHP Version: 8.1.10
+-- Generation Time: Jul 25, 2023 at 10:02 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.1.17
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -37,17 +37,17 @@ CREATE TABLE `restaurant` (
   `no_telp` varchar(20) DEFAULT NULL,
   `jam_buka` char(5) DEFAULT NULL,
   `jam_tutup` char(5) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `restaurant`
 --
 
 INSERT INTO `restaurant` (`resto_id`, `foto`, `video`, `nama_resto`, `harga`, `lokasi`, `no_telp`, `jam_buka`, `jam_tutup`) VALUES
-(1, '\"C:\\Users\\MSI\\OneDrive\\Dokumen\\Baso Mas\\Bakso\\1.png\"', '\"C:\\Users\\MSI\\OneDrive\\Dokumen\\Baso Mas\\Bakso Review.mp4\"', 'Bakso & Soto \"Sami Asih\"', 25000, 'Jl. Pramuka No.23, Sodagaran, Purwokerto Kulon, Kec. Purwokerto Sel., Kabupaten Banyumas, Jawa Tengah 53141', '+62 856-4784-6450', '11:00', '21:00'),
-(2, '\"C:\\Users\\MSI\\OneDrive\\Dokumen\\Baso Mas\\Bakso\\2.png\"', '\"C:\\Users\\MSI\\OneDrive\\Dokumen\\Baso Mas\\Bakso Review.mp4\"', 'Bakso Kebondalem Purwokerto', 18000, 'Jl. Perintis Kemerdekaan, Karangbawang, Purwokerto Lor, Kec. Purwokerto Sel., Kabupaten Banyumas, Jawa Tengah 53141', '+62 888-9991-9636', '11:00', '21:00'),
-(3, '\"C:\\Users\\MSI\\OneDrive\\Dokumen\\Baso Mas\\Bakso\\3.png\"', '\"C:\\Users\\MSI\\OneDrive\\Dokumen\\Baso Mas\\Bakso Review.mp4\"', 'Bakso Banjarnegara', 20000, 'H6GV+893, Kebondalem, Purwokerto Lor, Purwokerto Timur, Banyumas Regency, Central Java 53114', '+62 852-0123-4763', '10:00', '17:30'),
-(4, '\"C:\\Users\\MSI\\OneDrive\\Dokumen\\Baso Mas\\Bakso\\4.png\"', '\"C:\\Users\\MSI\\OneDrive\\Dokumen\\Baso Mas\\Bakso Review.mp4\"', 'Warung Bakso Cuanki & Siomay Wahyuningsari', 18000, 'Jl. Pramuka, Samudra, Purwokerto Kulon, Kec. Purwokerto Sel., Kabupaten Banyumas, Jawa Tengah 53147', '+62 857-4798-1234', '10:00', '19:00');
+(1, '1.png', '', 'Bakso & Soto ', 25000, 'Jl. Pramuka No.23, Sodagaran, Purwokerto Kulon, Kec. Purwokerto Sel., Kabupaten Banyumas, Jawa Tengah 53141', '+62 856-4784-6450', '11:00', '21:00'),
+(2, '6.png', 'youtube.com/watch?v=OrlkAu0drkQ', 'Bakso Kebondalem Purwokerto', 18000, 'Jl. Perintis Kemerdekaan, Karangbawang, Purwokerto Lor, Kec. Purwokerto Sel., Kabupaten Banyumas, Jawa Tengah 53141', '+62 888-9991-9636', '11:00', '21:00'),
+(3, '1.png', 'youtube.com/watch?v=OrlkAu0drkQ', 'Bakso Banjarnegara', 20000, 'H6GV+893, Kebondalem, Purwokerto Lor, Purwokerto Timur, Banyumas Regency, Central Java 53114', '+62 852-0123-4763', '10:00', '17:30'),
+(4, '6.png', 'youtube.com/watch?v=OrlkAu0drkQ', 'Warung Bakso Cuanki & Siomay Wahyuningsari', 18000, 'Jl. Pramuka, Samudra, Purwokerto Kulon, Kec. Purwokerto Sel., Kabupaten Banyumas, Jawa Tengah 53147', '+62 857-4798-1234', '10:00', '19:00');
 
 -- --------------------------------------------------------
 
@@ -63,7 +63,7 @@ CREATE TABLE `review` (
   `foto_review` varchar(500) DEFAULT NULL,
   `rating` float DEFAULT NULL,
   `caption` varchar(300) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `review`
@@ -81,7 +81,7 @@ INSERT INTO `review` (`review_id`, `user_id`, `resto_id`, `created_at`, `foto_re
 CREATE TABLE `role` (
   `role_id` int(11) NOT NULL,
   `role_name` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `role`
@@ -103,7 +103,7 @@ CREATE TABLE `user` (
   `nama_lengkap` varchar(200) DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL,
   `password` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `user`
@@ -152,7 +152,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `restaurant`
 --
 ALTER TABLE `restaurant`
-  MODIFY `resto_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `resto_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `review`
