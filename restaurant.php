@@ -91,7 +91,7 @@ include 'connect.php'
                             <img src="assets/img/Logo Rating.png" alt="">
                             <div class="user-info">
                                 <p class="username font-weight-bold">Username</p>
-                                <p class="text-secondary">username rated 0.0 for nama restaurant</p>
+                                <p class="text-secondary">username rated 0.0 for <?= $data['nama_resto'];?></p>
                             </div>
                         </div>
 
