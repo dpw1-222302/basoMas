@@ -113,7 +113,7 @@ include 'connect.php'
                             <div class="review-container">
                                 <div class="review-image border-radius">
                                     <div class="image-dummy">
-                                        
+
                                     </div>
                                 </div>
                                 <div class="col card" style="width: 100%;">
