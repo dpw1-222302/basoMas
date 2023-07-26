@@ -76,6 +76,12 @@ main {
 
 .width-review{
   width: 65%;
+  
+}
+
+.shadow-review{
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
 .rating-container {
@@ -94,25 +100,33 @@ main {
   margin: 0;
 }
 
-.resto-container {
-  border-bottom: 1px solid rgb(167, 167, 167);
-}
-
 .resto-container div {
-  display: flex;
   border-radius: 13px;
   height: 450px;
-  background-color: rgb(221, 221, 221);
   justify-content: center;
+  z-index: 10;
 }
 
 .resto-container div img{
+  position: relative;
   height: 100%;
+  z-index: 999;
 }
 
-.info-card{
-  padding: 0;
+.resto-container div::before{
+  filter: blur(5px);
 }
+
+.info-card .card{
+  border: 1px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  
+}
+
+p.score{
+  font-size: 20px;
+}
+
 .login-container {
   display: flex;
   flex-direction: column;
@@ -121,8 +135,8 @@ main {
 .review-container {
   display: flex;
   padding: 20px;
-
-  margin-top: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  margin:2rem 0 ;
 }
 
 .review-container .review-image .image-dummy {
@@ -210,5 +224,8 @@ a:hover{
   text-decoration: none !important;
 }
 
+footer{
+  background-color:#181211;
+}
 
 

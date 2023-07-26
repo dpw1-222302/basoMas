@@ -12,7 +12,8 @@ include 'connect.php'
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+    <link href="admin/restaurant/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
 </head>
 
 <body>
@@ -71,54 +72,63 @@ include 'connect.php'
         <div class="d-flex review-flex">
             <!-- konten reviewnya -->
             <div class="width-review">
-                <nav class="container   " aria-label="breadcrumb">
-                    <ol class="breadcrumb badge-light">
-                        <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                        <li class="breadcrumb-item"><a href="#">Restaurant</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">
+                <div class="shadow-review p-2">
+                    <nav class="container mt-3" aria-label="breadcrumb">
+                        <ol class="breadcrumb badge-light">
+                            <li class="breadcrumb-item "><a href="index.php">Home</a></li>
+                            <li class="breadcrumb-item "><a href="#">Restaurant</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">
+                                <?= $data['nama_resto'] ?>
+                            </li>
+                        </ol>
+                    </nav>
+
+                    <!-- nama restoran -->
+                    <div class="container">
+                        <h1 class="font-weight-bold">
                             <?= $data['nama_resto'] ?>
-                        </li>
-                    </ol>
-                </nav>
-
-                <!-- nama restoran -->
-                <div class="container">
-                    <h1 class="font-weight-bold">
-                        <?= $data['nama_resto'] ?>
-                    </h1>
-                </div>
-
-                <!-- lokasi restoran -->
-                <div class="mb-2 container">
-                    <span>
-                        <a href="">
-                            <?= $data['lokasi'] ?>
-                        </a>
-                    </span>
-                </div>
-
-
-                <!-- rating sama username yang ngereview -->
-                <div class="container mb-4">
-                    <!-- icon rating -->
-                    <div class="rating-container">
-                        <img src="assets/img/Logo Rating.png" alt="">
-                        <div class="user-info">
-                            <p class="username font-weight-bold">Score</p>
-                            <p class="text-secondary">
-                                <?= $data['nama_resto']; ?> got rated for 0.0
-
-                            </p>
-                        </div>
+                        </h1>
                     </div>
 
-                    <div class="resto-container mt-2">
-                        <div class="d-flex img-resto ">
-                            <img src="assets/upload/restaurant/<?= $data['foto'] ?>" alt="<?= $data['nama_resto']; ?>">
-                        </div>
+                    <!-- lokasi restoran -->
+                    <div class="mb-2 container">
+                        <span>
+                            <a href="">
+                                <?= $data['lokasi'] ?>
+                            </a>
+                        </span>
                     </div>
+
+
+                    <!-- rating sama username yang ngereview -->
+                    <div class="container mb-4">
+                        <!-- icon rating -->
+                        <div class="rating-container">
+                            <img src="assets/img/Logo Rating.png" alt="">
+                            <div class="user-info">
+                                <p class="score font-weight-bold">Score</p>
+                                <p class="text-secondary">
+                                    <?= $data['nama_resto']; ?> got rated for 0.0
+
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="d-block position-relative">
+                            <div class="resto-container mt-2 position-relative" style="background-image: url('assets/upload/restaurant/<?= $data['foto']?>'); ">
+  
+                                <div class="d-flex img-resto">
+                                    <img src="assets/upload/restaurant/<?= $data['foto'] ?>"
+                                        alt="<?= $data['nama_resto']; ?>">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
                 </div>
 
+                <!-- review user loop -->
                 <div>
 
                     <?php
@@ -126,8 +136,8 @@ include 'connect.php'
                     $query = "SELECT `review`.`caption`, `review`.`rating`, review.created_at, user.nama_lengkap FROM `review` JOIN `user` ON review.user_id = user.user_id WHERE resto_id=$id;";
                     $datas = $conn->query($query);
                     foreach ($datas as $review):
-                    $time = strtotime($review['created_at']);
-                    $myFormatForView = date("g:i A", $time);
+                        $time = strtotime($review['created_at']);
+                        $myFormatForView = date("g:i A", $time);
                         ?>
                         <div class="review-container">
                             <div class="review-image border-radius">
@@ -140,7 +150,9 @@ include 'connect.php'
                                     <h5 class="card-title font-weight-bold">
                                         <?= $review['nama_lengkap'] ?>
                                     </h5>
-                                    <h6 class="card-subtitle mb-2 text-muted">Waktu Review <?= $myFormatForView?></h6>
+                                    <h6 class="card-subtitle mb-2 text-muted">Waktu Review
+                                        <?= $myFormatForView ?>
+                                    </h6>
                                     <p class="card-text">
                                         <?= $review['caption'] ?>
                                     </p>
@@ -158,12 +170,12 @@ include 'connect.php'
                 <div class="card m-3 shadow-sm">
                     <div class="card-body">
                         <div class="mb-4 border-bottom card-title font-weight-bold">
-                            <p>Telepon:
+                            <p>&#9742;
                                 <?= $data['no_telp'] ?>
                             </p>
                         </div>
                         <div class="card-subtitle text-muted">
-                            <p>Jam buka:
+                            <p> Jam buka:
                                 <?= $data['jam_buka'] ?>
                             </p>
                         </div>
@@ -178,7 +190,7 @@ include 'connect.php'
         </div>
     </main>
 
-    <footer class="text-center text-lg-start text-muted" style="background-color:#cfc6b4;">
+    <footer class="text-center text-lg-start text-muted">
         <!-- Section: Social media -->
         <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
             <!-- Left -->

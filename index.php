@@ -107,7 +107,7 @@
                         ?>
                         <a href="./restaurant.php?idResto=<?= $data['resto_id']; ?>">
                             <div class="col">
-                                <div class="card shadow-sm resto-card">
+                                <div class="card shadow-review resto-card">
                                     <img src="assets/img/<?= $data['foto']?>" alt="<?= $data['foto'] ?>" class="card-img-top">
                                     <div class="card-body">
                                         <h5 class="card-title">
@@ -137,7 +137,7 @@
         </section>
     </main>
     <!-- Footer -->
-    <footer class="text-center text-lg-start text-muted" style="background-color:#cfc6b4;">
+    <footer class="text-center text-lg-start text-muted" style="">
         <!-- Section: Social media -->
         <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
             <!-- Left -->
