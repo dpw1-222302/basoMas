@@ -158,7 +158,7 @@ include 'connect.php'
                                 <input style="width: 300px;" type="range" min="0" max="100" value="50" id="o"
                                     oninput="hey()" />
                                 <div class="m-2 rating-value">
-                                    <span class="card-title" id="outputValue">5.0</span>
+                                    <span class="card-title" id="outputValue" value="">5.0</span>
                                 </div>
 
                                 <input type="hidden" id="outputHidden" name="outputValue" value="">
