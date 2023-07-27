@@ -37,6 +37,10 @@
                     <a class="nav-link" href="#fan-review">Fan Reviews</a>
                 </li>
 
+                <li class="nav-item">
+                    <a class="nav-link" href="#team">Our Team</a>
+                </li>
+
                 <?php
                 session_start();
 
@@ -58,8 +62,8 @@
                             } else {
                                 // Admin items first
                                 ?>
-                                
-                                <li><a class="dropdown-item" href="logout.php">Logout</a></li>
+
+                                <li><a class="dropdown-item" href="logout.php">Sign Out</a></li>
                                 <?php
                             }
                             ?>
@@ -103,9 +107,20 @@
                 <form>
                     <div class="container row form-group" id="range">
                         <form action="rating.php" method="POST">
-                            <input type="range" name="rate" class="col form-control-range" max=10 min=0 id="rate">
+                            <input type="range" name="rate" class="col form-control-range" max=100 min=0 id="rate"
+                                oninput="hoy()">
                             <label class="col d-flex align-items-center" id="formControlRange" for="formControlRange">
-                                <span>0.0 - 10.0</span></label>
+                                <h6 style="margin: 0; padding-right: 5px;">0.0 -</h6>
+                                <span id="rate_output"></span>
+                            </label>
+                            <script type="text/javascript">
+                                function hoy() {
+                                    var nilai = document.getElementById('rate').value;
+                                    var floatValue = (parseFloat(nilai) / 10).toFixed(1);
+                                    document.getElementById('rate_output').textContent = floatValue;
+
+                                }
+                            </script>
                             <button type="submit" class="btn btn-dark w-25" name="cari"
                                 onclick="cekRate()">Cari</button>
                         </form>
@@ -141,7 +156,7 @@
                                         <div class="d-flex justify-content-between align-items-center">
                                             <!-- Add any additional content here -->
                                         </div>
-                                        <small class="text-muted">Last updated 3 mins ago</small>
+                                        <small class="text-muted">Last updated</small>
                                     </div>
                                 </div>
                             </div>
@@ -157,6 +172,90 @@
             </center>
         </section>
     </main>
+
+    <!-- ======= Team Section ======= -->
+    <section id="team" class="team section-bg">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-title">
+                <h2>BasoMas Project Team</h2>
+                <p>BasoMas project team adalah tim yang berasal dari Software Engineering IT Telkom Purwokerto yang
+                    dibentuk guna menciptakan Website Review Bakso Di wilayah Kota Banyumas</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="pic"><img src="assets/team/asty.jpg" class="img-fluid" alt=""></div>
+                        <div class="member-info">
+                            <h4>Asty Yuliani</h4>
+                            <span>web developer</span>
+                            <p>Easy peasy</p>
+                            <div class="social">
+                                <a href=""><i class="fab fa-twitter"></i></a>
+                                <a href=""><i class="fab fa-facebook"></i></a>
+                                <a href="https://www.instagram.com/astyyliani__/?hl=id"><i
+                                        class="fab fa-instagram"></i></a>
+                                <a href=""> <i class="fab fa-linkedin"></i> </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-6 mt-4">
+                    <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="pic"><img src="assets/team/azelia.jpg" class="img-fluid" alt=""></div>
+                        <div class="member-info">
+                            <h4>Azelia Puspa</h4>
+                            <span>Web development </span>
+                            <p>Tugas yang baik adalah tugas yang selesai</p>
+                            <div class="social">
+                                <a href=""><i class="fab fa-twitter"></i></a>
+                                <a href=""><i class="fab fa-facebook"></i></a>
+                                <a href=""><i class="fab fa-instagram"></i></a>
+                                <a href=""> <i class="fab fa-linkedin"></i> </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 mt-4">
+                    <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="pic"><img src="assets/team/lintang.jpg" class="img-fluid" alt=""></div>
+                        <div class="member-info">
+                            <h4>Lintang Suryaningrum</h4>
+                            <span>Content Creator</span>
+                            <p>Cintai ususmu</p>
+                            <div class="social">
+                                <a href=""><i class="fab fa-twitter"></i></a>
+                                <a href=""><i class="fab fa-facebook"></i></a>
+                                <a href=""><i class="fab fa-instagram"></i></a>
+                                <a href=""> <i class="fab fa-linkedin"></i> </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 mt-4">
+                    <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="400">
+                        <div class="pic"><img src="assets/team/destu.jpeg" class="img-fluid" alt=""></div>
+                        <div class="member-info">
+                            <h4>Destu Cikal</h4>
+                            <span>Content Creator</span>
+                            <p>Minum</p>
+                            <div class="social">
+                                <a href=""><i class="fab fa-twitter"></i></a>
+                                <a href=""><i class="fab fa-facebook"></i></a>
+                                <a href="https://instagram.com/dframll"><i class="fab fa-instagram"></i></a>
+                                <a href=""> <i class="fab fa-linkedin"></i> </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!-- End Team Section -->
+
     <!-- Footer -->
     <footer class="text-center text-lg-start text-muted" style="">
         <!-- Section: Social media -->
@@ -168,23 +267,23 @@
             <!-- Left -->
 
             <!-- Right -->
-            <div>
-                <a href="" class="me-4 text-reset">
-                    <i class="fab fa-facebook-f"></i>
+            <div class="social-media">
+                <a href="" class="social-media me-4 text-reset">
+                    <i class=" fab fa-facebook-f"></i>
                 </a>
-                <a href="" class="me-4 text-reset">
+                <a href="" class="social-media me-4 text-reset">
                     <i class="fab fa-twitter"></i>
                 </a>
-                <a href="" class="me-4 text-reset">
+                <a href="" class="social-media me-4 text-reset">
                     <i class="fab fa-google"></i>
                 </a>
-                <a href="" class="me-4 text-reset">
+                <a href="" class="social-media me-4 text-reset">
                     <i class="fab fa-instagram"></i>
                 </a>
-                <a href="" class="me-4 text-reset">
+                <a href="" class="social-media me-4 text-reset">
                     <i class="fab fa-linkedin"></i>
                 </a>
-                <a href="" class="me-4 text-reset">
+                <a href="" class="social-media me-4 text-reset">
                     <i class="fab fa-github"></i>
                 </a>
             </div>
@@ -200,12 +299,11 @@
                     <!-- Grid column -->
                     <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4 text-light">
                         <!-- Content -->
-                        <h6 class="text-uppercase fw-bold mb-4">
-                            <i class="fas fa-gem me-3"></i> Baso Mas
-                        </h6>
-                        <p>
-                            Here you can use rows and columns to organize your footer content. Lorem ipsum
-                            dolor sit amet, consectetur adipisicing elit.
+                        <div class="text-uppercase fw-bold mb-4">
+                            <img src="assets/img/Logo-white.png" style="width: 200px;" alt="">
+                        </div>
+                        <p class="readme">
+                        Website review yang fokus pada berbagai jenis bakso yang dapat ditemukan di daerah Banyumas, Jawa Tengah, Indonesia. Tujuan utama proyek ini adalah untuk memberikan informasi yang lengkap dan akurat
                         </p>
                     </div>
                     <!-- Grid column -->
@@ -214,13 +312,13 @@
                     <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4 text-light">
                         <!-- Links -->
                         <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
-                        <p><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
+                        <p><i class="fas fa-home me-3"></i> Banyumas, Jawa Tengah</p>
                         <p>
                             <i class="fas fa-envelope me-3"></i>
-                            info@example.com
+                            info@basomas.com
                         </p>
-                        <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
-                        <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+                        <p><i class="fas fa-phone me-3"></i> +62 857-5393-6838</p>
+
                     </div>
                     <!-- Grid column -->
                 </div>
@@ -230,9 +328,8 @@
         <!-- Section: Links  -->
 
         <!-- Copyright -->
-        <div class="text-center p-4 text-light" style="background-color: rgba(0, 0, 0, 0.05);">
-            © 2021 Copyright:
-            <a class="text-danger fw-bold" href="">Baso Mas</a>
+        <div class="text-center p-4 company" style="background-color: rgba(0, 0, 0, 0.05);">
+            © 2023 Copyright: Baso Mas
         </div>
         <!-- Copyright -->
     </footer>
@@ -332,27 +429,19 @@
             });
         }
     </script>
+
     <script>
         $(document).ready(function () {
-            $('.rate').on('change', function () {
-
-                var rate = $('#rate').val();
+            $('#rate').on('input', function () {
+                var rate = $(this).val();
                 $.ajax({
                     type: "POST",
                     url: 'rating.php',
                     data: {
                         rate: rate
-                    }
-                });
-            });
-
-            $('.rate').on('click', function () {
-                var rate = $('#rate').val();
-                $.ajax({
-                    type: "POST",
-                    url: 'rating.php',
-                    data: {
-                        rate: rate
+                    },
+                    success: function (response) {
+                        // Handle the server response here if needed
                     }
                 });
             });

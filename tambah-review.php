@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             move_uploaded_file($_FILES['image']['tmp_name'], './assets/upload/restaurant/' . $filename);
 
             // memasukan data menggunakan query sql
-            $query = "INSERT INTO review (review_id, user_id, resto_id, created_at,  rating, caption) VALUES (DEFAULT, $user_id,$resto_id,'$created_at',  $rating,'$caption')";
+            $query = "INSERT INTO review (review_id, user_id, resto_id, created_at,  rating, caption) VALUES (DEFAULT, $user_id,$resto_id,'$created_at', $rating,'$caption')";
             echo $query;
             if ($conn->query($query)) {
                 echo "query berhasil";

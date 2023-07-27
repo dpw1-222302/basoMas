@@ -48,6 +48,9 @@ include 'connect.php'
                 <li class="nav-item">
                     <a class="nav-link" href="#fan-review">Fan Reviews</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.php?#team">Our Team</a>
+                </li>
 
                 <?php
                 session_start();
@@ -60,7 +63,7 @@ include 'connect.php'
                             <?= $_SESSION['nama_lengkap'] ?>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="logout.php">Logout</a>
+                            <a class="dropdown-item" href="logout.php">Sign Out</a>
                         </div>
                     </li>
                     <?php
@@ -92,7 +95,7 @@ include 'connect.php'
 
                     <!-- nama restoran -->
                     <div class="container">
-                        <h1 class="font-weight-bold">
+                        <h1 class="card-title restaurant-page">
                             <?= $data['nama_resto'] ?>
                         </h1>
                     </div>
@@ -113,7 +116,7 @@ include 'connect.php'
                         <div class="rating-container">
                             <div class="container-rating">
                                 <img src="assets/img/Logo Review.png" alt="">
-                                <p>
+                                <p class="card-title">
                                     <?= $averageRounded; ?>
                                 </p>
                             </div>
@@ -155,7 +158,7 @@ include 'connect.php'
                                 <input style="width: 300px;" type="range" min="0" max="100" value="50" id="o"
                                     oninput="hey()" />
                                 <div class="m-2 rating-value">
-                                    <span class="font-weight-bold" id="outputValue">5.0</span>
+                                    <span class="card-title" id="outputValue">5.0</span>
                                 </div>
 
                                 <input type="hidden" id="outputHidden" name="outputValue" value="">
@@ -222,7 +225,7 @@ include 'connect.php'
                                 <div class="user-rating m-3" style="width: 50px; height: 50px;">
                                     <div class="container-rating" ">
                                         <img style="width: 50px; height: 50px;" src="assets/img/Logo Review.png" alt="">
-                                        <p style="font-size: 12pt;">
+                                        <p style="font-size: 12pt; color: #442319;">
                                             <?= $review['rating']?>
                                         </p>
                                     </div>
@@ -239,7 +242,7 @@ include 'connect.php'
             <aside class="info-card">
                 <div class="card m-3 shadow-sm">
                     <div class="card-body">
-                        <div class="mb-4 border-bottom card-title font-weight-bold">
+                        <div class="mb-4 border-bottom card-title card-info">
                             <p>&#9742;
                                 <?= $data['no_telp'] ?>
                             </p>
@@ -260,7 +263,8 @@ include 'connect.php'
         </div>
     </main>
 
-    <footer class="text-center text-lg-start text-muted">
+     <!-- Footer -->
+     <footer class="text-center text-lg-start text-muted" style="">
         <!-- Section: Social media -->
         <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
             <!-- Left -->
@@ -270,23 +274,23 @@ include 'connect.php'
             <!-- Left -->
 
             <!-- Right -->
-            <div>
-                <a href="" class="me-4 text-reset">
-                    <i class="fab fa-facebook-f"></i>
+            <div class="social-media">
+                <a href="" class="social-media me-4 text-reset">
+                    <i class=" fab fa-facebook-f"></i>
                 </a>
-                <a href="" class="me-4 text-reset">
+                <a href="" class="social-media me-4 text-reset">
                     <i class="fab fa-twitter"></i>
                 </a>
-                <a href="" class="me-4 text-reset">
+                <a href="" class="social-media me-4 text-reset">
                     <i class="fab fa-google"></i>
                 </a>
-                <a href="" class="me-4 text-reset">
+                <a href="" class="social-media me-4 text-reset">
                     <i class="fab fa-instagram"></i>
                 </a>
-                <a href="" class="me-4 text-reset">
+                <a href="" class="social-media me-4 text-reset">
                     <i class="fab fa-linkedin"></i>
                 </a>
-                <a href="" class="me-4 text-reset">
+                <a href="" class="social-media me-4 text-reset">
                     <i class="fab fa-github"></i>
                 </a>
             </div>
@@ -302,54 +306,11 @@ include 'connect.php'
                     <!-- Grid column -->
                     <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4 text-light">
                         <!-- Content -->
-                        <h6 class="text-uppercase fw-bold mb-4">
-                            <i class="fas fa-gem me-3"></i> Baso Mas
-                        </h6>
-                        <p>
-                            Here you can use rows and columns to organize your footer content. Lorem ipsum
-                            dolor sit amet, consectetur adipisicing elit.
-                        </p>
-                    </div>
-                    <!-- Grid column -->
-
-                    <!-- Grid column -->
-                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4 text-light">
-                        <!-- Links -->
-                        <h6 class="text-uppercase fw-bold mb-4">
-                            Products
-                        </h6>
-                        <p>
-                            <a href="#!" class="text-reset">Angular</a>
-                        </p>
-                        <p>
-                            <a href="#!" class="text-reset">React</a>
-                        </p>
-                        <p>
-                            <a href="#!" class="text-reset">Vue</a>
-                        </p>
-                        <p>
-                            <a href="#!" class="text-reset">Laravel</a>
-                        </p>
-                    </div>
-                    <!-- Grid column -->
-
-                    <!-- Grid column -->
-                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4 text-light">
-                        <!-- Links -->
-                        <h6 class="text-uppercase fw-bold mb-4">
-                            Useful links
-                        </h6>
-                        <p>
-                            <a href="#!" class="text-reset">Pricing</a>
-                        </p>
-                        <p>
-                            <a href="#!" class="text-reset">Settings</a>
-                        </p>
-                        <p>
-                            <a href="#!" class="text-reset">Orders</a>
-                        </p>
-                        <p>
-                            <a href="#!" class="text-reset">Help</a>
+                        <div class="text-uppercase fw-bold mb-4">
+                            <img src="assets/img/Logo-white.png" style="width: 200px;" alt="">
+                        </div>
+                        <p class="readme">
+                        Website review yang fokus pada berbagai jenis bakso yang dapat ditemukan di daerah Banyumas, Jawa Tengah, Indonesia. Tujuan utama proyek ini adalah untuk memberikan informasi yang lengkap dan akurat
                         </p>
                     </div>
                     <!-- Grid column -->
@@ -358,13 +319,13 @@ include 'connect.php'
                     <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4 text-light">
                         <!-- Links -->
                         <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
-                        <p><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
+                        <p><i class="fas fa-home me-3"></i> Banyumas, Jawa Tengah</p>
                         <p>
                             <i class="fas fa-envelope me-3"></i>
-                            info@example.com
+                            info@basomas.com
                         </p>
-                        <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
-                        <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+                        <p><i class="fas fa-phone me-3"></i> +62 857-5393-6838</p>
+
                     </div>
                     <!-- Grid column -->
                 </div>
@@ -374,14 +335,12 @@ include 'connect.php'
         <!-- Section: Links  -->
 
         <!-- Copyright -->
-        <div class="text-center p-4 text-light" style="background-color: rgba(0, 0, 0, 0.05);">
-            © 2021 Copyright:
-            <a class="text-danger fw-bold" href="">Baso Mas</a>
+        <div class="text-center p-4 company" style="background-color: rgba(0, 0, 0, 0.05);">
+            © 2023 Copyright: Baso Mas
         </div>
         <!-- Copyright -->
     </footer>
     <!-- Footer -->
-
 
     <!-- Modal Login -->
     <div class="modal" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
@@ -454,21 +413,6 @@ include 'connect.php'
             </div>
         </div>
     </div>
-
-    <script>
-        div.myTemplate.rendered = function () {
-            document.getElementById("slider").oninput = function () {
-                myFunction()
-            };
-        }
-
-        function myFunction() {
-            var val = document.getElementById("slider").value //gets the oninput value
-            document.getElementById('output').innerHTML = val //displays this value to the html page
-            console.log(val)
-        }
-    </script>
-
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
