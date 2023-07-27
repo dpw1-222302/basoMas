@@ -183,10 +183,23 @@ include 'connect.php'
                                 <label for="file">Add an image</label>
                                 <input type="file" class="form-control" name="image">
                             </div>
+                            <?php
+                            if (!empty($_SESSION['email'])) {
+                                ?>
 
-                            <div class="d-flex justify-content-end mr-sm-3">
-                                <button name="submit" type="submit" class="btn btn-dark mb-4">Tambah Review</button>
-                            </div>
+                                <div class="d-flex justify-content-end mr-sm-3">
+                                    <button name="submit" type="submit" class="btn btn-dark mb-4">Tambah Review</button>
+                                </div>
+                                <?php
+                            } else {
+                                ?>
+                                <div class="d-flex justify-content-end mr-sm-3">
+                                    <button name="" type="button" class="btn btn-dark mb-4" data-toggle="modal"
+                                        data-target="#loginModal">Tambah Review</button>
+                                </div>
+                                <?php
+                            }
+                            ?>
 
                         </form>
                     </div>
@@ -224,9 +237,10 @@ include 'connect.php'
                                 </div>
                                 <div class="user-rating m-3" style="width: 50px; height: 50px;">
                                     <div class="container-rating" ">
-                                        <img style="width: 50px; height: 50px;" src="assets/img/Logo Review.png" alt="">
+                                            <img style=" width: 50px; height: 50px;" src="assets/img/Logo Review.png"
+                                        alt="">
                                         <p style="font-size: 12pt; color: #442319;">
-                                            <?= $review['rating']?>
+                                            <?= $review['rating'] ?>
                                         </p>
                                     </div>
                                 </div>
@@ -263,8 +277,8 @@ include 'connect.php'
         </div>
     </main>
 
-     <!-- Footer -->
-     <footer class="text-center text-lg-start text-muted" style="">
+    <!-- Footer -->
+    <footer class="text-center text-lg-start text-muted" style="">
         <!-- Section: Social media -->
         <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
             <!-- Left -->
@@ -310,7 +324,9 @@ include 'connect.php'
                             <img src="assets/img/Logo-white.png" style="width: 200px;" alt="">
                         </div>
                         <p class="readme">
-                        Website review yang fokus pada berbagai jenis bakso yang dapat ditemukan di daerah Banyumas, Jawa Tengah, Indonesia. Tujuan utama proyek ini adalah untuk memberikan informasi yang lengkap dan akurat
+                            Website review yang fokus pada berbagai jenis bakso yang dapat ditemukan di daerah Banyumas,
+                            Jawa Tengah, Indonesia. Tujuan utama proyek ini adalah untuk memberikan informasi yang
+                            lengkap dan akurat
                         </p>
                     </div>
                     <!-- Grid column -->
