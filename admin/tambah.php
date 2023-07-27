@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $no_telp = $_POST['no_telp'];
     $jam_buka = $_POST['jam_buka'];
     $jam_tutup = $_POST['jam_tutup'];
-   
+    
 
     $rand = rand();
     $ekstensi = array('png', 'jpg', 'jpeg', 'gif');
@@ -30,17 +30,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 header("location:restaurant/tables.php?alert=berhasil");
                 exit;
             } else {
-                echo "Error executing query: " . $conn->error;
+                echo "Error executing query: " . $conn->$error;
             }
             header("location:restaurant.php?alert=berhasil");
         } else {
-            header("location:restaurant.php?alert=gagak_ukuran");
+            header("location:restaurant.php?alert=gagal_ukuran");
         }
     }
-
-    // memasukan data menggunakan query sql
-    //$query = "INSERT INTO restaurant (resto_id, foto, video, nama_resto, harga, lokasi, no_telp, jam_buka, jam_tutup) VALUES (DEFAULT,'$img','$video','$nama_resto', '$harga','$lokasi','$no_telp','$jam_buka','$jam_tutup')";
-
-    // jika berhasil maka dialihkan ke halamaan restaurant
 
 }

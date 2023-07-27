@@ -1,3 +1,5 @@
+
+
 body {
   font-family: Helvetica, sans-serif !important;
 }
@@ -130,6 +132,10 @@ p.score{
   flex-direction: column;
 }
 
+#inpuReview{
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
 .review-container {
   display: flex;
   padding: 20px;
@@ -145,7 +151,11 @@ p.score{
 }
 
 .review-image .image-dummy img{
-  height: 100%;
+  height: auto;
+}
+
+.content-review{
+  background-color: white;
 }
 
 .album {
@@ -250,6 +260,7 @@ a:hover{
 }
 
 footer{
+  margin-top: 2rem;
   background-color:#181211;
 }
 

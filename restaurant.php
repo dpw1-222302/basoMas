@@ -25,7 +25,7 @@ include 'connect.php'
     $datas = $conn->query($query);
     foreach ($datas as $data):
     endforeach;
-    
+
     $avg = $conn->query($avgQuery);
     $average = mysqli_fetch_column($avg);
     $averageRounded = round($average, 1);
@@ -112,7 +112,7 @@ include 'connect.php'
                         <!-- icon rating -->
                         <div class="rating-container">
                             <div class="container-rating">
-                                <img src="assets/img/Logo Rating.png" alt="">
+                                <img src="assets/img/Logo Review.png" alt="">
                                 <p>
                                     <?= $averageRounded; ?>
                                 </p>
@@ -136,17 +136,65 @@ include 'connect.php'
                                 </div>
                             </div>
                         </div>
-
                     </div>
 
                 </div>
 
+                <!-- end of resto container -->
+
+                <!-- tambah review -->
+                <div class="container mt-4" id="inputReview" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;">
+                    <div class="tambah-review mt-4 pt-4">
+                        <form method="POST" action="tambah-review.php" enctype="multipart/form-data">
+                            <input type="hidden" name="idResto" id="Resto" value="<?= $id ?>">
+
+                            <div class="container-fluid form-group d-flex align-items-center ">
+                                <div class="mr-4">
+                                    <b>Add Your Rating</b>
+                                </div>
+                                <input style="width: 300px;" type="range" min="0" max="100" value="50" id="o"
+                                    oninput="hey()" />
+                                <div class="m-2 rating-value">
+                                    <span class="font-weight-bold" id="outputValue">5.0</span>
+                                </div>
+
+                                <input type="hidden" id="outputHidden" name="outputValue" value="">
+                                <script type="text/javascript">
+                                    function hey() {
+                                        var nilai = document.getElementById('o').value;
+                                        var floatValue = (parseFloat(nilai) / 10).toFixed(1);
+                                        document.getElementById('outputValue').textContent = floatValue;
+                                        //beri value ke id outputhidden
+                                        document.getElementById('outputHidden').value = floatValue;
+                                    }
+                                </script>
+                            </div>
+
+                            <div class="container-fluid form-group">
+                                <label for="caption"></label>
+                                <textarea class="form-control" id="caption" name="caption" rows="3"
+                                    placeholder="Add a review here..."></textarea>
+                            </div>
+
+                            <div class="container form-group">
+                                <label for="file">Add an image</label>
+                                <input type="file" class="form-control" name="image">
+                            </div>
+
+                            <div class="d-flex justify-content-end mr-sm-3">
+                                <button name="submit" type="submit" class="btn btn-dark mb-4">Tambah Review</button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+                <!-- end of tambah review -->
+
                 <!-- review user loop -->
                 <div>
-
                     <?php
                     $id = $_GET['idResto'];
-                    $query = "SELECT `review`.`caption`, `review`.`rating`, review.created_at, user.nama_lengkap FROM `review` JOIN `user` ON review.user_id = user.user_id WHERE resto_id=$id;";
+                    $query = "SELECT `review`.`caption`, `review`.`rating`, review.foto_review, review.created_at, user.nama_lengkap FROM `review` JOIN `user` ON review.user_id = user.user_id WHERE resto_id=$id;";
                     $datas = $conn->query($query);
                     foreach ($datas as $review):
                         $time = strtotime($review['created_at']);
@@ -155,11 +203,12 @@ include 'connect.php'
                         <div class="review-container">
                             <div class="review-image border-radius">
                                 <div class="d-flex image-dummy">
-                                    <img src="./assets/upload/restaurant/1.png" alt="<?= $review['foto_review'] ?>">
+                                    <img src="./assets/upload/restaurant/<?= $data['foto'] ?>"
+                                        alt="<?= $review['foto_review'] ?>">
                                 </div>
                             </div>
-                            <div class="col card" style="width: 100%;">
-                                <div class="card-body">
+                            <div class="d-flex content-review" style="width: 100%;">
+                                <div class="col card-body">
                                     <h5 class="card-title font-weight-bold">
                                         <?= $review['nama_lengkap'] ?>
                                     </h5>
@@ -169,6 +218,14 @@ include 'connect.php'
                                     <p class="card-text">
                                         <?= $review['caption'] ?>
                                     </p>
+                                </div>
+                                <div class="user-rating m-3" style="width: 50px; height: 50px;">
+                                    <div class="container-rating" ">
+                                        <img style="width: 50px; height: 50px;" src="assets/img/Logo Review.png" alt="">
+                                        <p style="font-size: 12pt;">
+                                            <?= $review['rating']?>
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -397,6 +454,21 @@ include 'connect.php'
             </div>
         </div>
     </div>
+
+    <script>
+        div.myTemplate.rendered = function () {
+            document.getElementById("slider").oninput = function () {
+                myFunction()
+            };
+        }
+
+        function myFunction() {
+            var val = document.getElementById("slider").value //gets the oninput value
+            document.getElementById('output').innerHTML = val //displays this value to the html page
+            console.log(val)
+        }
+    </script>
+
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
